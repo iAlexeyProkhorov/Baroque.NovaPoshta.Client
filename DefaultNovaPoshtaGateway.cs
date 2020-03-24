@@ -48,6 +48,17 @@ namespace Baroque.NovaPoshta.Client
         public string Version { get; private set; } = "v2.0";
 
         /// <summary>
+        /// Gets full http request address
+        /// </summary>
+        public Uri FullUri
+        {
+            get
+            {
+                return new Uri($"{Url}{Version}/{SerializationHelper.Type.ToLower()}/");
+            }
+        }
+
+        /// <summary>
         /// Gets serialization helper which will use for connection
         /// </summary>
         public ISerializationHelper SerializationHelper { get; private set; } = new JsonSerializationHelper();
@@ -86,17 +97,6 @@ namespace Baroque.NovaPoshta.Client
         #endregion
 
         #region Methods
-
-        /// <summary>
-        /// Gets full http request address
-        /// </summary>
-        public Uri FullUri
-        {
-            get
-            {
-                return new Uri($"{Url}{Version}/{SerializationHelper.Type.ToLower()}/");
-            }
-        }
 
         /// <summary>
         /// Set api version property

@@ -10,13 +10,6 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
     public interface IDocumentService
     {
         /// <summary>
-        /// Estimate document price. Represents 'getDocumentPrice' method of 'InternetDocument' model.
-        /// </summary>
-        /// <param name="getDocumentPriceRequest">Get document price request</param>
-        /// <returns>Calculated document price</returns>
-        IResponseEnvelope<GetDocumentPriceResponse.PriceCalculationInfo> GetDocumentPrice(GetDocumentPriceRequest getDocumentPriceRequest);
-
-        /// <summary>
         /// Get client documents list from 'Nova Poshta' service. Represents method 'getDocumentList' of 'InternalDocument' model.
         /// Documentation: https://devcenter.novaposhta.ua/docs/services/556eef34a0fe4f02049c664e/operations/557eb417a0fe4f02fc455b2c
         /// </summary>
@@ -35,5 +28,31 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="getDocumentsListRequest">Get documents list request</param>
         /// <returns>Documents list</returns>
         IResponseEnvelope<GetDocumentListResponse.Document> GetDocumentList(GetDocumentsListRequest getDocumentsListRequest);
+
+        /// <summary>
+        /// Allow to get document approximately delivery date. Represents 'getDocumentDeliveryDate' method of 'InternetDocument' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556eef34a0fe4f02049c664e/operations/558153cca0fe4f12149812a1
+        /// </summary>
+        /// <param name="cityRecipient">Recipient city reference key</param>
+        /// <param name="citySender">Sender city recipient key</param>
+        /// <param name="dateTime">Document creation date time</param>
+        /// <param name="serviceType">Delivery service type. Like 'WarehouseWarehouse' and so on.</param>
+        /// <returns>Estimated delivery date</returns>
+        IResponseEnvelope<GetDocumentDeliveryDateResponse.ResponseItem> GetDocumentDeliveryDate(Guid citySender, Guid cityRecipient, string serviceType = "WarehouseWarehouse", DateTime? dateTime = null);
+
+        /// <summary>
+        /// Allow to get document approximately delivery date. Represents 'getDocumentDeliveryDate' method of 'InternetDocument' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556eef34a0fe4f02049c664e/operations/558153cca0fe4f12149812a1
+        /// </summary>
+        /// <param name="getDocumentDeliveryDateRequest">Document delivery date request</param>
+        /// <returns>Estimated delivery date</returns>
+        IResponseEnvelope<GetDocumentDeliveryDateResponse.ResponseItem> GetDocumentDeliveryDate(GetDocumentDeliveryDateRequest getDocumentDeliveryDateRequest);
+
+        /// <summary>
+        /// Estimate document price. Represents 'getDocumentPrice' method of 'InternetDocument' model.
+        /// </summary>
+        /// <param name="getDocumentPriceRequest">Get document price request</param>
+        /// <returns>Calculated document price</returns>
+        IResponseEnvelope<GetDocumentPriceResponse.PriceCalculationInfo> GetDocumentPrice(GetDocumentPriceRequest getDocumentPriceRequest);
     }
 }
