@@ -136,6 +136,9 @@ namespace Baroque.NovaPoshta.Client
             where TRequest: class, new()
             where TResponse: class, new()
         {
+            //apply api key to request
+            request.ApiKey = this.ApiKey;
+
             //serialize request
             var serialized = SerializationHelper.Serialize(request);
 

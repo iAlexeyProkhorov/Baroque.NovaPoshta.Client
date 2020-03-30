@@ -54,5 +54,13 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="getDocumentPriceRequest">Get document price request</param>
         /// <returns>Calculated document price</returns>
         IResponseEnvelope<GetDocumentPriceResponse.PriceCalculationInfo> GetDocumentPrice(GetDocumentPriceRequest getDocumentPriceRequest);
+
+        /// <summary>
+        /// Create internet document. represents 'save' method of 'InternetDocument' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556eef34a0fe4f02049c664e/operations/56261f14a0fe4f1e503fe187
+        /// </summary>
+        /// <param name="createDocumentRequest">Create document request</param>
+        /// <returns>Document creation result</returns>
+        IResponseEnvelope<CreateDocumentResponse.CreationResult> CreateDocument(CreateDocumentRequest createDocumentRequest);
     }
 }

@@ -122,5 +122,24 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             var response = _novaPoshtaGateway.CreateRequest<GetDocumentPriceRequest, GetDocumentPriceResponse>(request);
             return response;
         }
+
+        /// <summary>
+        /// Create internet document. represents 'save' method of 'InternetDocument' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556eef34a0fe4f02049c664e/operations/56261f14a0fe4f1e503fe187
+        /// </summary>
+        /// <param name="createDocumentRequest">Create document request</param>
+        /// <returns>Document creation result</returns>
+        public virtual IResponseEnvelope<CreateDocumentResponse.CreationResult> CreateDocument(CreateDocumentRequest createDocumentRequest)
+        {
+            var request = new RequestEnvelope<CreateDocumentRequest>(createDocumentRequest)
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "save",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<CreateDocumentRequest, CreateDocumentResponse>(request);
+            return response;
+        }
     }
 }
