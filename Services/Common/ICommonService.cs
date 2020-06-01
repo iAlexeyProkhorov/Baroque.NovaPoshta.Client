@@ -136,6 +136,5 @@ namespace Baroque.NovaPoshta.Client.Services.Common
         /// </summary>
         /// <returns>Array of supported ownership forms</returns>
         IResponseEnvelope<GetOwnershipFormsResponse.OwnershipForm> GetOwnershipFormsList();
-    }
-       
+    }     
 }

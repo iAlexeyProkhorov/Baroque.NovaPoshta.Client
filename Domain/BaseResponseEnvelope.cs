@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Baroque.NovaPoshta.Client.Domain
 {
@@ -19,7 +20,7 @@ namespace Baroque.NovaPoshta.Client.Domain
         /// Gets or sets response body
         /// </summary>
         [DataMember(Name = "data")]
-        public TResponseBody[] Data { get; set; } = new TResponseBody[0];
+        public IList<TResponseBody> Data { get; set; } = new List<TResponseBody>();
 
         /// <summary>
         /// Gets first data value when response has successfull result and data has values quantity higher than zero
@@ -29,7 +30,7 @@ namespace Baroque.NovaPoshta.Client.Domain
         {
             get
             {
-                return Success && Data.Length > 0 ? Data[0] : null;
+                return Success && Data.Count > 0 ? Data[0] : null;
             }
         }
     }

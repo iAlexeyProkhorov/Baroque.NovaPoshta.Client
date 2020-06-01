@@ -174,5 +174,74 @@ namespace Baroque.NovaPoshta.Client.Services.Counterparties
             var response = _novaPoshtaGateway.CreateRequest<GetCounterpartiesRequest, GetCounterpartiesResponse>(request);
             return response;
         }
+
+        /// <summary>
+        /// Create counterparty. Represent 'save' method of 'Counterparty' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/557eb8c8a0fe4f02fc455b2d/operations/557ebbd3a0fe4f02fc455b2e
+        /// </summary>
+        /// <param name="createCounterpartyRequest">Create counterparty request</param>
+        /// <returns>Counterparty creation result</returns>
+        public virtual IResponseEnvelope<CounterpartyCreateOrUpdate> CreateCounterparty(CreateCounterpartyRequest createCounterpartyRequest)
+        {
+            var request = new RequestEnvelope<CreateCounterpartyRequest>(createCounterpartyRequest)
+            {
+                CalledMethod = "save",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<CreateCounterpartyRequest, CreateCounterpartyResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Update counterparty. Represents 'update' method of 'Counterparty' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/557eb8c8a0fe4f02fc455b2d/operations/557fbe62a0fe4f105c08760d
+        /// </summary>
+        /// <param name="updateCounterpartyRequest">Update counterparty request</param>
+        /// <returns>Counterparty processing result</returns>
+        public virtual IResponseEnvelope<CounterpartyCreateOrUpdate> UpdateCounterparty(UpdateCounterpartyRequest updateCounterpartyRequest)
+        {
+            var request = new RequestEnvelope<UpdateCounterpartyRequest>(updateCounterpartyRequest)
+            {
+                CalledMethod = "update",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<UpdateCounterpartyRequest, UpdateCounterpartyResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Delete 'recipient' counterparty. Represents 'delete' method of 'Counterparty' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/557eb8c8a0fe4f02fc455b2d/operations/557fd35da0fe4f105c08760e
+        /// </summary>
+        /// <param name="reference">Counterparty reference key</param>
+        /// <returns>Counterparty removing result</returns>
+        public virtual IResponseEnvelope<DeleteCounterpartyResponse.DeletedCounterparty> DeleteCounterparty(Guid reference)
+        {
+            var request = new DeleteCounterpartyRequest()
+            {
+                Reference = reference
+            };
+            return DeleteCounterparty(request);
+        }
+
+        /// <summary>
+        /// Delete 'recipient' counterparty. Represents 'delete' method of 'Counterparty' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/557eb8c8a0fe4f02fc455b2d/operations/557fd35da0fe4f105c08760e
+        /// </summary>
+        /// <param name="deleteCounterpartyRequest">Delete counterparty request</param>
+        /// <returns>Counterparty removing result</returns>
+        public virtual IResponseEnvelope<DeleteCounterpartyResponse.DeletedCounterparty> DeleteCounterparty(DeleteCounterpartyRequest deleteCounterpartyRequest)
+        {
+            var request = new RequestEnvelope<DeleteCounterpartyRequest>(deleteCounterpartyRequest)
+            {
+                CalledMethod = "delete",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<DeleteCounterpartyRequest, DeleteCounterpartyResponse>(request);
+            return response;
+        }
     }
 }
