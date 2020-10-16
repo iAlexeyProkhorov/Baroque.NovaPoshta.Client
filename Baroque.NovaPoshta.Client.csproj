@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Description>Library represents full client for 'Nova Poshta' API</Description>
     <RepositoryType>Git</RepositoryType>
-    <PackageReleaseNotes>Contains full methods collection for 'Address', 'AddressGeneral', 'Common' models.
-Partially for 'Counterparty' and 'Document' models.</PackageReleaseNotes>
+    <PackageReleaseNotes>Contains full methods collection for 'Address', 'AddressGeneral', 'Common', 'Counterparty', 'Document' models.
+Partially AdditionalService method for document backward.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
