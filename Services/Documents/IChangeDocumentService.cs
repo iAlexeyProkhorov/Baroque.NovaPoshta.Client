@@ -21,5 +21,12 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="checkDocumentChangesAvailabilityRequest">Chec the document changes availability state request</param>
         /// <returns>Changes availability response</returns>
         IResponseEnvelope<CheckDocumentChangesAvailabilityResponse.ChangesAvailabilityItem> CheckPossibilityChangeEW(CheckDocumentChangesAvailabilityRequest checkDocumentChangesAvailabilityRequest);
+
+        /// <summary>
+        /// Change internet document
+        /// </summary>
+        /// <param name="changeDocumentRequest">Change document request body</param>
+        /// <returns>Document change response</returns>
+        IResponseEnvelope<ChangeDocumentResponse.Item> ChangeDocument(ChangeDocumentRequest changeDocumentRequest);
     }
 }

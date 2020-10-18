@@ -64,6 +64,23 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             return response;
         }
 
+        /// <summary>
+        /// Change internet document
+        /// </summary>
+        /// <param name="changeDocumentRequest">Change document request body</param>
+        /// <returns>Document change response</returns>
+        public virtual IResponseEnvelope<ChangeDocumentResponse.Item> ChangeDocument(ChangeDocumentRequest changeDocumentRequest)
+        {
+            var request = new RequestEnvelope<ChangeDocumentRequest>(changeDocumentRequest)
+            {
+                CalledMethod = "save",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<ChangeDocumentRequest, ChangeDocumentResponse>(request);
+            return response;
+        }
+
         #endregion
     }
 }
