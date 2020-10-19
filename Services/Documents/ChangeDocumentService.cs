@@ -1,5 +1,6 @@
 ﻿using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Domain.Documents;
+using System;
 
 namespace Baroque.NovaPoshta.Client.Services.Documents
 {
@@ -78,6 +79,38 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             };
 
             var response = _novaPoshtaGateway.CreateRequest<ChangeDocumentRequest, ChangeDocumentResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Delete document changes request
+        /// </summary>
+        /// <param name="reference">Changes request reference key</param>
+        /// <returns>Document changes deleting response.</returns>
+        public virtual IResponseEnvelope<DeleteDocumentChangesResponse.Item> DeleteChangesRequest(Guid reference)
+        {
+            var request = new DeleteDocumentChangesRequest()
+            {
+                Reference = reference
+            };
+
+            return DeleteChangesRequest(request);
+        }
+
+        /// <summary>
+        /// Delete document changes request
+        /// </summary>
+        /// <param name="deleteDocumentChangesRequest">Document changes delete request body.</param>
+        /// <returns>Document changes deleting response.</returns>
+        public virtual IResponseEnvelope<DeleteDocumentChangesResponse.Item> DeleteChangesRequest(DeleteDocumentChangesRequest deleteDocumentChangesRequest)
+        {
+            var request = new RequestEnvelope<DeleteDocumentChangesRequest>(deleteDocumentChangesRequest)
+            {
+                CalledMethod = "delete",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<DeleteDocumentChangesRequest, DeleteDocumentChangesResponse>(request);
             return response;
         }
 
