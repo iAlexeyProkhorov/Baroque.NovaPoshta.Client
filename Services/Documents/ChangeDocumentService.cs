@@ -66,6 +66,49 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         }
 
         /// <summary>
+        /// Get list of change requests.
+        /// </summary>
+        /// <param name="number">Gets or sets searching request number</param>
+        /// <param name="reference">Gets or sets searching request reference key</param>
+        /// <param name="beginDate">Gets or sets request searching start date. Format: dd.MM.yyyy</param>
+        /// <param name="endDate">Gets or sets request searching end date. Format: dd.MM.yyyy</param>
+        /// <param name="page">Gets or sets page number</param>
+        /// <param name="limit">Gets or sets request quantity per page</param>
+        /// <returns>Change request list response</returns>
+        public virtual IResponseEnvelope<GetChangeRequestsListResponse.ChangesRequest> GetChangeEWOrdersList(string number, Guid? reference, DateTime beginDate, DateTime endDate, int page = 0, int limit = 100)
+        {
+            var request = new GetChangeRequestsListRequest()
+            {
+                BeginDate = beginDate.ToString("dd.MM.yyyy"),
+                EndDate = beginDate.ToString("dd.MM.yyyy"),
+                Limit = limit,
+                Number = number,
+                Page = page,
+                Ref = reference
+            };
+
+            return GetChangeEWOrdersList(request);
+        }
+
+        /// <summary>
+        /// Get list of change requests.
+        /// </summary>
+        /// <param name="getChangeRequestsListRequest">Change request list request</param>
+        /// <returns>Change request list response</returns>
+        public virtual IResponseEnvelope<GetChangeRequestsListResponse.ChangesRequest> GetChangeEWOrdersList(GetChangeRequestsListRequest getChangeRequestsListRequest)
+        {
+            var request = new RequestEnvelope<GetChangeRequestsListRequest>(getChangeRequestsListRequest)
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "getChangeEWOrdersList",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<GetChangeRequestsListRequest, GetChangeRequestsListResponse>(request);
+            return response;
+        }
+
+        /// <summary>
         /// Change internet document
         /// </summary>
         /// <param name="changeDocumentRequest">Change document request body</param>
