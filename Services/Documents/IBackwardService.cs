@@ -24,5 +24,12 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="checkReturnPossibilityRequest">Request body</param>
         /// <returns>List of documents</returns>
         IResponseEnvelope<CheckReturnPossibilityResponse.Document> CheckPossibilityCreateReturn(CheckReturnPossibilityRequest checkReturnPossibilityRequest);
+
+        /// <summary>
+        /// Get backward reasons list.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6cd6aeea2700d141ccae1
+        /// </summary>
+        /// <returns></returns>
+        IResponseEnvelope<GetBackwardReasonsListResponse.BackwardReason> GetReturnReasons();
     }
 }
