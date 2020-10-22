@@ -1,5 +1,6 @@
 ﻿using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Domain.Documents;
+using System;
 
 namespace Baroque.NovaPoshta.Client.Services.Documents
 {
@@ -79,6 +80,40 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             };
 
             var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetBackwardReasonsListResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Get backward subreason types list.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6cdb2ff2c200cd80adb92
+        /// </summary>
+        /// <param name="reasonReference">Backward reason reference code.</param>
+        /// <returns>List of available backward subreasons.</returns>
+        public virtual IResponseEnvelope<GetBackwardSubreasonsListResponse.BackwardSubreason> GetReturnReasonsSubtypes(Guid reasonReference)
+        {
+            var request = new GetBackwardSubreasonsListRequest()
+            {
+                ReasonRef = reasonReference
+            };
+
+            return GetReturnReasonsSubtypes(request);
+        }
+
+        /// <summary>
+        /// Get backward subreason types list.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6cdb2ff2c200cd80adb92
+        /// </summary>
+        /// <param name="getBackwardSubreasonsListRequest">Get backward subreason types request</param>
+        /// <returns>List of available backward subreasons.</returns>
+        public virtual IResponseEnvelope<GetBackwardSubreasonsListResponse.BackwardSubreason> GetReturnReasonsSubtypes(GetBackwardSubreasonsListRequest getBackwardSubreasonsListRequest)
+        {
+            var request = new RequestEnvelope<GetBackwardSubreasonsListRequest>(getBackwardSubreasonsListRequest)
+            {
+                CalledMethod = "getReturnReasonsSubtypes",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<GetBackwardSubreasonsListRequest, GetBackwardSubreasonsListResponse>(request);
             return response;
         }
 
