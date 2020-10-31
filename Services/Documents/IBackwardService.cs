@@ -48,5 +48,13 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="getBackwardSubreasonsListRequest">Get backward subreason types request</param>
         /// <returns>List of available backward subreasons.</returns>
         IResponseEnvelope<GetBackwardSubreasonsListResponse.BackwardSubreason> GetReturnReasonsSubtypes(GetBackwardSubreasonsListRequest getBackwardSubreasonsListRequest);
+
+        /// <summary>
+        /// Create backward claim.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6d227ff2c200cd80adb94
+        /// </summary>
+        /// <param name="createBackwardClaimRequest">Backward claim creation request</param>
+        /// <returns>Backward claim creation result</returns>
+        IResponseEnvelope<CreateBackwardClaimResponse.BackwardClaimCreationResult> CreateBackwardClaim(CreateBackwardClaimRequest createBackwardClaimRequest);
     }
 }

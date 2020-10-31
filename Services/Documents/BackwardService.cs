@@ -117,6 +117,24 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             return response;
         }
 
+        /// <summary>
+        /// Create backward claim.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6d227ff2c200cd80adb94
+        /// </summary>
+        /// <param name="createBackwardClaimRequest">Backward claim creation request</param>
+        /// <returns>Backward claim creation result</returns>
+        public virtual IResponseEnvelope<CreateBackwardClaimResponse.BackwardClaimCreationResult> CreateBackwardClaim(CreateBackwardClaimRequest createBackwardClaimRequest)
+        {
+            var request = new RequestEnvelope<CreateBackwardClaimRequest>(createBackwardClaimRequest)
+            {
+                CalledMethod = "save",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<CreateBackwardClaimRequest, CreateBackwardClaimResponse>(request);
+            return response;
+        }
+
         #endregion
     }
 }
