@@ -17,7 +17,7 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
 
         #region Constants
 
-        public const string MODEL = "AdditionalService";
+        public const string MODEL = "AdditionalServices";
 
         #endregion
 
