@@ -56,5 +56,12 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="createBackwardClaimRequest">Backward claim creation request</param>
         /// <returns>Backward claim creation result</returns>
         IResponseEnvelope<CreateBackwardClaimResponse.BackwardClaimCreationResult> CreateBackwardClaim(CreateBackwardClaimRequest createBackwardClaimRequest);
+
+        /// <summary>
+        /// Get backward claims list
+        /// </summary>
+        /// <param name="getBackwardClaimListRequest">Get backward claims request</param>
+        /// <returns>Backward claims list</returns>
+        IResponseEnvelope<GetBackwardClaimListResponse.BackwardClaim> GetReturnOrdersList(GetBackwardClaimListRequest getBackwardClaimListRequest);
     }
 }
