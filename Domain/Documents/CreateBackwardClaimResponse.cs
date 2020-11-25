@@ -10,6 +10,12 @@ namespace Baroque.NovaPoshta.Client.Domain.Documents
     public class CreateBackwardClaimResponse : BaseResponseEnvelope<CreateBackwardClaimResponse.BackwardClaimCreationResult>
     {
         /// <summary>
+        /// Gets or sets request processing errors
+        /// </summary>
+        [DataMember]
+        public string[] Errors = new string[0];
+
+        /// <summary>
         /// Represetnst backward claim creation result
         /// </summary>
         public class BackwardClaimCreationResult : BaseRefItem

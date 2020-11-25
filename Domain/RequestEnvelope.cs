@@ -28,6 +28,12 @@ namespace Baroque.NovaPoshta.Client.Domain
         public string CalledMethod { get; set; }
 
         /// <summary>
+        /// Gets or sets overrided method URL. Using for additional services work.
+        /// </summary>
+        [IgnoreDataMember]
+        public string OverridedMethodUrl { get; set; }
+
+        /// <summary>
         /// Gets or sets request method properties
         /// </summary>
         [DataMember(Name = "methodProperties")]

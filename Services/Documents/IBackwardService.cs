@@ -16,7 +16,7 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// </summary>
         /// <param name="number">Document tracking number. Stay empty if you need list of all documents.</param>
         /// <returns>List of documents</returns>
-        IResponseEnvelope<CheckReturnPossibilityResponse.Document> CheckPossibilityCreateReturn(int? number);
+        IResponseEnvelope<CheckReturnPossibilityResponse.Document> CheckPossibilityCreateReturn(string number);
 
         /// <summary>
         /// Check document return possibility.
@@ -63,5 +63,21 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="getBackwardClaimListRequest">Get backward claims request</param>
         /// <returns>Backward claims list</returns>
         IResponseEnvelope<GetBackwardClaimListResponse.BackwardClaim> GetReturnOrdersList(GetBackwardClaimListRequest getBackwardClaimListRequest);
+
+        /// <summary>
+        /// Delete backward claim.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6cdf4ff2c200cd80adb93
+        /// </summary>
+        /// <param name="deleteBackwardClaimRequest">Delete backward claim request</param>
+        /// <returns>Delete backward claim response</returns>
+        IResponseEnvelope<DeleteBackwardClaimResponse.ResponseItem> DeleteBackwardClaim(Guid reference);
+
+        /// <summary>
+        /// Delete backward claim.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6cdf4ff2c200cd80adb93
+        /// </summary>
+        /// <param name="deleteBackwardClaimRequest">Delete backward claim request</param>
+        /// <returns>Delete backward claim response</returns>
+        IResponseEnvelope<DeleteBackwardClaimResponse.ResponseItem> DeleteBackwardClaim(DeleteBackwardClaimRequest deleteBackwardClaimRequest);
     }
 }

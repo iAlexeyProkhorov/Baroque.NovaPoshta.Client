@@ -34,7 +34,6 @@ namespace Baroque.NovaPoshta.Client
         /// </summary>
         IHttpRequestHelper HttpRequestHelper { get; }
 
-
         /// <summary>
         /// Create HTTP request to 'Nova Poshta' gateway
         /// </summary>

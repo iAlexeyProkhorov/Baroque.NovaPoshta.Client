@@ -13,6 +13,6 @@ namespace Baroque.NovaPoshta.Client.Domain.Documents
         /// Gets or sets document tracking number. Empty when need to receive list of doduments which can be return.
         /// </summary>
         [DataMember]
-        public int? Number { get; set; }
+        public string Number { get; set; }
     }
 }

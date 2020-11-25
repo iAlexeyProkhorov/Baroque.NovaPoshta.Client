@@ -9,6 +9,12 @@ namespace Baroque.NovaPoshta.Client.Domain.Documents
     public class CheckDocumentChangesAvailabilityResponse : BaseResponseEnvelope<CheckDocumentChangesAvailabilityResponse.ChangesAvailabilityItem>
     {
         /// <summary>
+        /// Gets or sets request processing errors list
+        /// </summary>
+        [DataMember]
+        public string[] Errors { get; set; } = new string[0];
+
+        /// <summary>
         /// Represents changes availability response item
         /// </summary>
         [DataContract]

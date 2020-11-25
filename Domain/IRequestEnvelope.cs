@@ -21,6 +21,11 @@
         string CalledMethod { get; set; }
 
         /// <summary>
+        /// Gets or sets overrided method URL. Using for additional services work.
+        /// </summary>
+        string OverridedMethodUrl { get; set; }
+
+        /// <summary>
         /// Gets or sets request method properties
         /// </summary>
         TRequestBody MethodProperties { get; set; }

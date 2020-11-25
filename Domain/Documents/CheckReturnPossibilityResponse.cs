@@ -10,6 +10,12 @@ namespace Baroque.NovaPoshta.Client.Domain.Documents
     public class CheckReturnPossibilityResponse: BaseResponseEnvelope<CheckReturnPossibilityResponse.Document>
     {
         /// <summary>
+        /// Gets or sets request processing errors list
+        /// </summary>
+        [DataMember]
+        public string[] Errors { get; set; } = new string[0];
+
+        /// <summary>
         /// Represents document which can be return
         /// </summary>
         public class Document : BaseRefItem

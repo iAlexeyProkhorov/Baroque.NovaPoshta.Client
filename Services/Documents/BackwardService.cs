@@ -32,7 +32,7 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
 
         #region Constants
 
-        public const string MODEL = "AdditionalServices";
+        public const string MODEL = "AdditionalService";
 
         #endregion
 
@@ -41,6 +41,9 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         public BackwardService(INovaPoshtaGateway novaPoshtaGateway)
         {
             _novaPoshtaGateway = novaPoshtaGateway;
+
+            //somebody get great shit idea to change url specially for this service
+            //_novaPoshtaGateway.
         }
 
         #endregion
@@ -53,7 +56,7 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// </summary>
         /// <param name="number">Document tracking number. Stay empty if you need list of all documents.</param>
         /// <returns>List of documents</returns>
-        public virtual IResponseEnvelope<CheckReturnPossibilityResponse.Document> CheckPossibilityCreateReturn(int? number)
+        public virtual IResponseEnvelope<CheckReturnPossibilityResponse.Document> CheckPossibilityCreateReturn(string number)
         {
             var request = new CheckReturnPossibilityRequest()
             {
@@ -164,6 +167,40 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             };
 
             var response = _novaPoshtaGateway.CreateRequest<GetBackwardClaimListRequest, GetBackwardClaimListResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Delete backward claim.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6cdf4ff2c200cd80adb93
+        /// </summary>
+        /// <param name="deleteBackwardClaimRequest">Delete backward claim request</param>
+        /// <returns>Delete backward claim response</returns>
+        public virtual IResponseEnvelope<DeleteBackwardClaimResponse.ResponseItem> DeleteBackwardClaim(Guid reference)
+        {
+            var request = new DeleteBackwardClaimRequest()
+            {
+                Reference = reference
+            };
+
+            return DeleteBackwardClaim(request);
+        }
+
+        /// <summary>
+        /// Delete backward claim.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/58ad7185eea27006cc36d649/operations/58b6cdf4ff2c200cd80adb93
+        /// </summary>
+        /// <param name="deleteBackwardClaimRequest">Delete backward claim request</param>
+        /// <returns>Delete backward claim response</returns>
+        public virtual IResponseEnvelope<DeleteBackwardClaimResponse.ResponseItem> DeleteBackwardClaim(DeleteBackwardClaimRequest deleteBackwardClaimRequest)
+        {
+            var request = new RequestEnvelope<DeleteBackwardClaimRequest>(deleteBackwardClaimRequest)
+            {
+                ModelName = MODEL,
+                CalledMethod = "delete"
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<DeleteBackwardClaimRequest, DeleteBackwardClaimResponse>(request);
             return response;
         }
 

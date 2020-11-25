@@ -46,6 +46,12 @@ namespace Baroque.NovaPoshta.Client
     {
         #region Fields
 
+        private string _fullUri;
+
+        #endregion
+
+        #region Properties
+
         /// <summary>
         /// Gets or sets individual api key
         /// </summary>
@@ -68,7 +74,7 @@ namespace Baroque.NovaPoshta.Client
         {
             get
             {
-                return new Uri($"{Url}{Version}/{SerializationHelper.Type.ToLower()}/");
+                return new Uri(_fullUri);
             }
         }
 
@@ -88,7 +94,7 @@ namespace Baroque.NovaPoshta.Client
 
         public DefaultNovaPoshtaGateway()
         {
-
+            Initialize();
         }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace Baroque.NovaPoshta.Client
         public DefaultNovaPoshtaGateway(string apiKey)
         {
             this.ApiKey = apiKey;
+            Initialize();
         }
 
         #endregion
@@ -110,6 +117,18 @@ namespace Baroque.NovaPoshta.Client
 
         #endregion
 
+        #region Utilites
+
+        /// <summary>
+        /// Initialize 'Nova Poshta' gateway
+        /// </summary>
+        protected virtual void Initialize()
+        {
+            _fullUri = $"{Url}{Version}/{SerializationHelper.Type.ToLower()}/";
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -119,15 +138,6 @@ namespace Baroque.NovaPoshta.Client
         public void SetVersion(string version)
         {
             this.Version = version;
-        }
-
-        /// <summary>
-        /// Set Nova Poshta API url
-        /// </summary>
-        /// <param name="url">Url</param>
-        public void SetUrl(string url)
-        {
-            this.Url = url;
         }
 
         /// <summary>
@@ -161,7 +171,7 @@ namespace Baroque.NovaPoshta.Client
                 RequestSerialized(request, ref serialized);
 
             //create HTTP request
-            var responseData = CreateRequest(serialized);
+            var responseData = CreateRequest(request.OverridedMethodUrl, serialized);
 
             //run method processing arrived response data
             if (ResponseArrived != null)
@@ -181,7 +191,7 @@ namespace Baroque.NovaPoshta.Client
         /// </summary>
         /// <param name="data">Data to send, usually serialized at JSON or XML format.</param>
         /// <returns>Gateway response. Serialized at XML or JSON format</returns>
-        public string CreateRequest(string data)
+        public string CreateRequest(string overridedUri, string data)
         {
             //get request bytes
             var requestData = HttpRequestHelper.Encoding.GetBytes(data);
@@ -192,7 +202,7 @@ namespace Baroque.NovaPoshta.Client
                 ContentType = SerializationHelper.ContentType,
                 Data = requestData,
                 Method = HttpMethod.POST,
-                Uri = this.FullUri
+                Uri = string.IsNullOrEmpty(overridedUri) ? FullUri : new Uri(overridedUri)
             };
 
             //create http request

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Baroque.NovaPoshta.Client.Serialization
+﻿namespace Baroque.NovaPoshta.Client.Serialization
 {
     /// <summary>
     /// Represents the serialization helper interface

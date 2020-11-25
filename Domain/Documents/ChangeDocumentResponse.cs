@@ -10,6 +10,12 @@ namespace Baroque.NovaPoshta.Client.Domain.Documents
     public class ChangeDocumentResponse : BaseResponseEnvelope<ChangeDocumentResponse.Item>
     {
         /// <summary>
+        /// Gets or sets request processing errors
+        /// </summary>
+        [DataMember]
+        public string[] Errors { get; set; } = new string[0];
+
+        /// <summary>
         /// Represents change response
         /// </summary>
         [DataContract]

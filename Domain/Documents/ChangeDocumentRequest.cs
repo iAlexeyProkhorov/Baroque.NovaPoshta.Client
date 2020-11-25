@@ -14,7 +14,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Documents
         /// Gets or sets document tracking number
         /// </summary>
         [DataMember]
-        public int IntDocNumber { get; set; }
+        public string IntDocNumber { get; set; }
 
         /// <summary>
         /// Gets or sets changing data type. "orderChangeEW" by default.
