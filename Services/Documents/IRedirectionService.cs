@@ -14,6 +14,7 @@
 
 using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Domain.Documents;
+using System;
 
 namespace Baroque.NovaPoshta.Client.Services.Documents
 {
@@ -36,5 +37,19 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="createRedirectionClaimRequest">Redirection claim request</param>
         /// <returns>Redirection claim response</returns>
         IResponseEnvelope<CreateRedirectionClaimResponse.ResponseItem> CreateRedirectionClaim(CreateRedirectionClaimRequest createRedirectionClaimRequest);
+
+        /// <summary>
+        /// Delete redirection claim
+        /// </summary>
+        /// <param name="reference">Redirection request reference key</param>
+        /// <returns>Redirection claim deleting response</returns>
+        IResponseEnvelope<DeleteRedirectionClaimResponse.ResponseItem> DeleteRedirectionClaim(Guid reference);
+
+        /// <summary>
+        /// Delete redirection claim
+        /// </summary>
+        /// <param name="deleteRedirectionClaimRequest">Redirection claim delete request</param>
+        /// <returns>Redirection claim deleting response</returns>
+        IResponseEnvelope<DeleteRedirectionClaimResponse.ResponseItem> DeleteRedirectionClaim(DeleteRedirectionClaimRequest deleteRedirectionClaimRequest);
     }
 }

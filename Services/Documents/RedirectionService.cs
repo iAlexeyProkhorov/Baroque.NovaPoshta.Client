@@ -15,8 +15,6 @@
 using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Domain.Documents;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Baroque.NovaPoshta.Client.Services.Documents
 {
@@ -80,6 +78,38 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             };
 
             var response = _novaPoshtaGateway.CreateRequest<CreateRedirectionClaimRequest, CreateRedirectionClaimResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Delete redirection claim
+        /// </summary>
+        /// <param name="reference">Redirection request reference key</param>
+        /// <returns>Redirection claim deleting response</returns>
+        public virtual IResponseEnvelope<DeleteRedirectionClaimResponse.ResponseItem> DeleteRedirectionClaim(Guid reference)
+        {
+            var request = new DeleteRedirectionClaimRequest()
+            {
+                Reference = reference
+            };
+
+            return DeleteRedirectionClaim(request);
+        }
+
+        /// <summary>
+        /// Delete redirection claim
+        /// </summary>
+        /// <param name="deleteRedirectionClaimRequest">Redirection claim delete request</param>
+        /// <returns>Redirection claim deleting response</returns>
+        public virtual IResponseEnvelope<DeleteRedirectionClaimResponse.ResponseItem> DeleteRedirectionClaim(DeleteRedirectionClaimRequest deleteRedirectionClaimRequest)
+        {
+            var request = new RequestEnvelope<DeleteRedirectionClaimRequest>(deleteRedirectionClaimRequest)
+            {
+                CalledMethod = "delete",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<DeleteRedirectionClaimRequest, DeleteRedirectionClaimResponse>(request);
             return response;
         }
 
