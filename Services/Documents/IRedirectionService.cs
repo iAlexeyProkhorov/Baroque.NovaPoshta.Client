@@ -51,5 +51,24 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="deleteRedirectionClaimRequest">Redirection claim delete request</param>
         /// <returns>Redirection claim deleting response</returns>
         IResponseEnvelope<DeleteRedirectionClaimResponse.ResponseItem> DeleteRedirectionClaim(DeleteRedirectionClaimRequest deleteRedirectionClaimRequest);
+
+        /// <summary>
+        /// Get redirection claims list
+        /// </summary>
+        /// <param name="reference">Claim reference key</param>
+        /// <param name="number">Claim number</param>
+        /// <param name="beginDate">Searching start date</param>
+        /// <param name="endDate">Searching end date</param>
+        /// <param name="page">List page number</param>
+        /// <param name="limit">List page size</param>
+        /// <returns></returns>
+        IResponseEnvelope<GetRedirectionClaimListResponse.RedirectionClaimItem> GetRedirectionOrdersList(Guid? reference, string number, DateTime? beginDate, DateTime? endDate, int page = 0, int limit = 50)
+
+        /// <summary>
+        /// Get redirection claims list
+        /// </summary>
+        /// <param name="getRedirectionClaimListRequest">Redirection claims list request</param>
+        /// <returns>Redirection claims list response</returns>
+        IResponseEnvelope<GetRedirectionClaimListResponse.RedirectionClaimItem> GetRedirectionOrdersList(GetRedirectionClaimListRequest getRedirectionClaimListRequest);
     }
 }

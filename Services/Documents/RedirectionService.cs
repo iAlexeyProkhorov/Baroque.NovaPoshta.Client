@@ -14,6 +14,7 @@
 
 using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Domain.Documents;
+using Baroque.NovaPoshta.Client.Extensions;
 using System;
 
 namespace Baroque.NovaPoshta.Client.Services.Documents
@@ -110,6 +111,48 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             };
 
             var response = _novaPoshtaGateway.CreateRequest<DeleteRedirectionClaimRequest, DeleteRedirectionClaimResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Get redirection claims list
+        /// </summary>
+        /// <param name="reference">Claim reference key</param>
+        /// <param name="number">Claim number</param>
+        /// <param name="beginDate">Searching start date</param>
+        /// <param name="endDate">Searching end date</param>
+        /// <param name="page">List page number</param>
+        /// <param name="limit">List page size</param>
+        /// <returns></returns>
+        public virtual IResponseEnvelope<GetRedirectionClaimListResponse.RedirectionClaimItem> GetRedirectionOrdersList(Guid? reference, string number, DateTime? beginDate, DateTime? endDate, int page = 0, int limit = 50)
+        {
+            var request = new GetRedirectionClaimListRequest()
+            {
+                Reference = reference,
+                Number = number,
+                BeginDate = beginDate.ParseToString(),
+                EndDate = endDate.ParseToString(),
+                Page = page,
+                Limit = limit
+            };
+
+            return GetRedirectionOrdersList(request);
+        }
+
+        /// <summary>
+        /// Get redirection claims list
+        /// </summary>
+        /// <param name="getRedirectionClaimListRequest">Redirection claims list request</param>
+        /// <returns>Redirection claims list response</returns>
+        public virtual IResponseEnvelope<GetRedirectionClaimListResponse.RedirectionClaimItem> GetRedirectionOrdersList(GetRedirectionClaimListRequest getRedirectionClaimListRequest)
+        {
+            var request = new RequestEnvelope<GetRedirectionClaimListRequest>(getRedirectionClaimListRequest)
+            {
+                CalledMethod = "getRedirectionOrdersList",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<GetRedirectionClaimListRequest, GetRedirectionClaimListResponse>(request);
             return response;
         }
 
