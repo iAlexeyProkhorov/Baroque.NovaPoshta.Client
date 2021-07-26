@@ -62,7 +62,7 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="page">List page number</param>
         /// <param name="limit">List page size</param>
         /// <returns></returns>
-        IResponseEnvelope<GetRedirectionClaimListResponse.RedirectionClaimItem> GetRedirectionOrdersList(Guid? reference, string number, DateTime? beginDate, DateTime? endDate, int page = 0, int limit = 50)
+        IResponseEnvelope<GetRedirectionClaimListResponse.RedirectionClaimItem> GetRedirectionOrdersList(Guid? reference, string number, DateTime? beginDate, DateTime? endDate, int page = 0, int limit = 50);
 
         /// <summary>
         /// Get redirection claims list
