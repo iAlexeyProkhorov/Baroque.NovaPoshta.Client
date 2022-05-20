@@ -1,6 +1,6 @@
 # Baroque.NovaPoshta.Client
 
-Hi everyone! Today I want to present you a 'Nova Poshta' API client. 'Nova Poshta' it's Ukrainian most popular delivery service. It has strong web API service,
+Hi everyone! Today I want to present you a 'Nova Poshta' API client. 'Nova Poshta' it's Ukrainian most popular delivery service. It has strong web API,
 which needed sometimes for Ukrainian developers.
 
 
