@@ -1,12 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Version>1.2.2</Version>
     <Description>Library represents full client for 'Nova Poshta' API</Description>
     <RepositoryType>Git</RepositoryType>
-    <PackageReleaseNotes>Contains full methods collection for 'Address', 'AddressGeneral', 'Common', 'Counterparty', 'Document' models.
-Partially AdditionalService method for document backward.</PackageReleaseNotes>
+    <PackageReleaseNotes>Supports all API 2.0 methods for all available models.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
