@@ -3,9 +3,8 @@
 Hi everyone! Today I want to present you a 'Nova Poshta' API client. 'Nova Poshta' it's Ukrainian most popular delivery service. It has strong web API,
 which needed sometimes for Ukrainian developers.
 
-
 You need to do few steps to start working with client:
-* Create your personal 'Nova Poshta' account and generate your Api key. Detailed how to do this you can find [here](https://devcenter.novaposhta.ua/start).
+* Create your personal 'Nova Poshta' account and generate your Api key. Detailed how to do this you can find [here](https://developers.novaposhta.ua/documentation).
 * You need to create class implementing interface **INovaPoshtaGateway**. Or you can use our default class **DefaultNovaPoshtaGateway**. 
 Copy your API key created at first step and paste it in ApiKey parameter or your gateway instance like here:
 ```C#
@@ -25,3 +24,11 @@ void Run()
 ```
 * All other services connect by same way.
 * Now you can use all other services in your application.
+
+From version 1.3.0 library also supports documents tracking. 
+You can find tracking service in Baroque.NovaPoshta.Client.Services.Tracking namespace.
+
+Thanks to [Dmitry](https://github.com/Demonchik) for pointing out what I missed.
+
+### Feel free to write me about project bugs and issues.
+
