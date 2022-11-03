@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.2;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
-    <Version>1.2.3-rc</Version>
+    <Version>1.3.0</Version>
     <Description>Library represents full client for 'Nova Poshta' API</Description>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Supports all API 2.0 methods for all available models.</PackageReleaseNotes>
