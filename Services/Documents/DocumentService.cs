@@ -140,7 +140,7 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
 
         /// <summary>
         /// Create internet document. represents 'save' method of 'InternetDocument' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556eef34a0fe4f02049c664e/operations/56261f14a0fe4f1e503fe187
+        /// Documentation: https://developers.novaposhta.ua/view/model/a90d323c-8512-11ec-8ced-005056b2dbe1/method/a965630e-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="createDocumentRequest">Create document request</param>
         /// <returns>Document creation result</returns>

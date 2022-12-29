@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Baroque.NovaPoshta.Client.Http
 {
@@ -136,6 +137,35 @@ namespace Baroque.NovaPoshta.Client.Http
                 client.Timeout = timeout;
 
                 return method.Equals("get", StringComparison.InvariantCultureIgnoreCase) ? client.DownloadData(requestUrl) : client.UploadData(requestUrl, method, data);
+            }
+        }
+
+        /// <summary>
+        /// Create HTTP request
+        /// </summary>
+        /// <param name="uri">Request uri</param>
+        /// <param name="method">HTTP method</param>
+        /// <param name="parameters">Request query parameters</param>
+        /// <param name="headers">Request headers</param>
+        /// <param name="data">Data to sendResponse byte array</param>
+        /// <param name="timeout">Request timeout</param>
+        /// <returns>Response byte array</returns>
+        public virtual async Task<byte[]> CreateRequestAsync(Uri uri, string method, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10)
+        {
+            using (var client = new BaroqueWebClient())
+            {
+                //parse parametrized url
+                var requestUrl = CreateParametrizedRequestUrl(uri, parameters);
+                var requestUri = new Uri(requestUrl);
+
+                //add request headers
+                foreach (var header in headers)
+                    client.Headers.Add(header.Key, header.Value);
+
+                client.Encoding = Encoding;
+                client.Timeout = timeout;
+
+                return method.Equals("get", StringComparison.InvariantCultureIgnoreCase) ? await client.DownloadDataTaskAsync(requestUri) : await client.UploadDataTaskAsync(requestUri, method, data);
             }
         }
 

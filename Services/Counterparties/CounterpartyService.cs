@@ -104,7 +104,7 @@ namespace Baroque.NovaPoshta.Client.Services.Counterparties
 
         /// <summary>
         /// Allow to get counterparty contact persons list. Represents 'getCounterpartyContactPerson' method request of 'Counterparty' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/557eb8c8a0fe4f02fc455b2d/operations/557fe424a0fe4f105c087612
+        /// Documentation: https://developers.novaposhta.ua/view/model/a28f4b04-8512-11ec-8ced-005056b2dbe1/method/a3575a67-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="page">Page number. Each page contains 100 items.</param>
         /// <param name="reference">Counterparty reference key</param>
@@ -122,7 +122,7 @@ namespace Baroque.NovaPoshta.Client.Services.Counterparties
 
         /// <summary>
         /// Allow to get counterparty contact persons list. Represents 'getCounterpartyContactPerson' method request of 'Counterparty' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/557eb8c8a0fe4f02fc455b2d/operations/557fe424a0fe4f105c087612
+        /// Documentation: https://developers.novaposhta.ua/view/model/a28f4b04-8512-11ec-8ced-005056b2dbe1/method/a3575a67-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="getContactPersonRequest">Get contact person request</param>
         /// <returns>Array of counterparty contact persons.</returns>

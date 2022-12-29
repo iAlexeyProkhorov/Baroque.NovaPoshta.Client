@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Baroque.NovaPoshta.Client.Http
 {
@@ -73,5 +74,17 @@ namespace Baroque.NovaPoshta.Client.Http
         /// <param name="timeout">Request timeout</param>
         /// <returns>Response byte array</returns>
         byte[] CreateRequest(Uri uri, string method, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10);
+
+        /// <summary>
+        /// Create HTTP request
+        /// </summary>
+        /// <param name="uri">Request uri</param>
+        /// <param name="method">HTTP method</param>
+        /// <param name="parameters">Request query parameters</param>
+        /// <param name="headers">Request headers</param>
+        /// <param name="data">Data to sendResponse byte array</param>
+        /// <param name="timeout">Request timeout</param>
+        /// <returns>Response byte array</returns>
+        Task<byte[]> CreateRequestAsync(Uri uri, string method, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10);
     }
 }

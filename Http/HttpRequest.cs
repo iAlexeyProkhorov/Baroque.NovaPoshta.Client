@@ -46,7 +46,5 @@ namespace Baroque.NovaPoshta.Client.Http
         {
             Headers["Content-Type"] = "application/json";
         }
-
-
     }
 }

@@ -26,5 +26,8 @@ namespace Baroque.NovaPoshta.Client.Domain.Countrparty
                 return this.Description;
             }
         }
+
+        [DataMember(Name = "errors")]
+        public string[] Errors { get; set; } = new string[0];
     }
 }
