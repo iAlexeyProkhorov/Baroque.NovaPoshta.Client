@@ -62,5 +62,29 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
         /// <param name="createDocumentRequest">Create document request</param>
         /// <returns>Document creation result</returns>
         IResponseEnvelope<CreateDocumentResponse.CreationResult> CreateDocument(CreateDocumentRequest createDocumentRequest);
+
+        /// <summary>
+        /// Updates internet document. Represents 'update' method of 'InternetDocument' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a90d323c-8512-11ec-8ced-005056b2dbe1/method/a98a4354-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <param name="updateDocumentRequest">Update document request</param>
+        /// <returns>Document update result</returns>
+        IResponseEnvelope<UpdateDocumentResponse.UpdateResult> UpdateDocument(UpdateDocumentRequest updateDocumentRequest);
+
+        /// <summary>
+        /// Deletes internet document. Reprents 'delete' method of 'InternetDocument' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a90d323c-8512-11ec-8ced-005056b2dbe1/method/a9f43ff1-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <param name="reference">Deleting document unique reference key</param>
+        /// <returns>Document deletion result</returns>
+        IResponseEnvelope<DeleteDocumentResponse.DeletedDocument> DeleteDocument(Guid reference);
+
+        /// <summary>
+        /// Deletes internet document. Reprents 'delete' method of 'InternetDocument' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a90d323c-8512-11ec-8ced-005056b2dbe1/method/a9f43ff1-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <param name="deleteDocumentRequest">Delete document request</param>
+        /// <returns>Document deletion result</returns>
+        IResponseEnvelope<DeleteDocumentResponse.DeletedDocument> DeleteDocument(DeleteDocumentRequest deleteDocumentRequest);
     }
 }

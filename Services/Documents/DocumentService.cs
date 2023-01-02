@@ -156,5 +156,59 @@ namespace Baroque.NovaPoshta.Client.Services.Documents
             var response = _novaPoshtaGateway.CreateRequest<CreateDocumentRequest, CreateDocumentResponse>(request);
             return response;
         }
+
+        /// <summary>
+        /// Updates internet document. Represents 'update' method of 'InternetDocument' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a90d323c-8512-11ec-8ced-005056b2dbe1/method/a98a4354-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <param name="updateDocumentRequest">Update document request</param>
+        /// <returns>Document update result</returns>
+        public virtual IResponseEnvelope<UpdateDocumentResponse.UpdateResult> UpdateDocument(UpdateDocumentRequest updateDocumentRequest)
+        {
+            var request = new RequestEnvelope<UpdateDocumentRequest>(updateDocumentRequest)
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "update",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<UpdateDocumentRequest, UpdateDocumentResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Deletes internet document. Reprents 'delete' method of 'InternetDocument' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a90d323c-8512-11ec-8ced-005056b2dbe1/method/a9f43ff1-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <param name="reference">Deleting document unique reference key</param>
+        /// <returns>Document deletion result</returns>
+        public virtual IResponseEnvelope<DeleteDocumentResponse.DeletedDocument> DeleteDocument(Guid reference)
+        {
+            var request = new DeleteDocumentRequest()
+            {
+                DocumentRefs = reference
+            };
+
+            return DeleteDocument(request);
+        }
+
+        /// <summary>
+        /// Deletes internet document. Reprents 'delete' method of 'InternetDocument' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a90d323c-8512-11ec-8ced-005056b2dbe1/method/a9f43ff1-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <param name="deleteDocumentRequest">Delete document request</param>
+        /// <returns>Document deletion result</returns>
+        public virtual IResponseEnvelope<DeleteDocumentResponse.DeletedDocument> DeleteDocument(DeleteDocumentRequest deleteDocumentRequest)
+        {
+            var request = new RequestEnvelope<DeleteDocumentRequest>(deleteDocumentRequest)
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "delete",
+                ModelName = MODEL
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<DeleteDocumentRequest, DeleteDocumentResponse>(request);
+            return response;
+        }
     }
 }
