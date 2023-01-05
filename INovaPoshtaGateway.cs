@@ -1,6 +1,7 @@
 ﻿using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Http;
 using Baroque.NovaPoshta.Client.Serialization;
+using System.Threading.Tasks;
 
 namespace Baroque.NovaPoshta.Client
 {
@@ -42,6 +43,17 @@ namespace Baroque.NovaPoshta.Client
         /// <param name="request">Request instance</param>
         /// <returns>Deserialized response</returns>
         TResponse CreateRequest<TRequest, TResponse>(IRequestEnvelope<TRequest> request)
+            where TRequest : class, new()
+            where TResponse : class, new();
+
+        /// <summary>
+        /// Create HTTP request to 'Nova Poshta' gateway async
+        /// </summary>
+        /// <typeparam name="TResponse">Response type</typeparam>
+        /// <typeparam name="TRequest">Request type</typeparam>
+        /// <param name="request">Request instance</param>
+        /// <returns>Deserialized response</returns>
+        Task<TResponse> CreateRequestAsync<TRequest, TResponse>(IRequestEnvelope<TRequest> request)
             where TRequest : class, new()
             where TResponse : class, new();
     }

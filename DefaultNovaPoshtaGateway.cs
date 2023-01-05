@@ -16,6 +16,7 @@ using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Http;
 using Baroque.NovaPoshta.Client.Serialization;
 using System;
+using System.Threading.Tasks;
 
 namespace Baroque.NovaPoshta.Client
 {
@@ -160,6 +161,21 @@ namespace Baroque.NovaPoshta.Client
             where TRequest: class, new()
             where TResponse: class, new()
         {
+            var response = CreateRequestAsync<TRequest, TResponse>(request).GetAwaiter().GetResult();
+            return response;
+        }
+
+        /// <summary>
+        /// Create HTTP request to 'Nova Poshta' gateway async
+        /// </summary>
+        /// <typeparam name="TResponse">Response type</typeparam>
+        /// <typeparam name="TRequest">Request type</typeparam>
+        /// <param name="request">Request instance</param>
+        /// <returns>Deserialized response</returns>
+        public async Task<TResponse> CreateRequestAsync<TRequest, TResponse>(IRequestEnvelope<TRequest> request)
+            where TRequest : class, new()
+            where TResponse : class, new()
+        {
             //apply api key to request
             request.ApiKey = this.ApiKey;
 
@@ -171,7 +187,7 @@ namespace Baroque.NovaPoshta.Client
                 RequestSerialized(request, ref serialized);
 
             //create HTTP request
-            var responseData = CreateRequest(request.OverridedMethodUrl, serialized);
+            var responseData = await CreateRequestAsync(request.OverridedMethodUrl, serialized);
 
             //run method processing arrived response data
             if (ResponseArrived != null)
@@ -186,12 +202,25 @@ namespace Baroque.NovaPoshta.Client
             return deserialized;
         }
 
+
+
         /// <summary>
         /// Create HTTP request to 'Nova Poshta' gateway 
         /// </summary>
         /// <param name="data">Data to send, usually serialized at JSON or XML format.</param>
         /// <returns>Gateway response. Serialized at XML or JSON format</returns>
         public string CreateRequest(string overridedUri, string data)
+        {
+            var response = CreateRequestAsync(overridedUri, data).GetAwaiter().GetResult();
+            return response;
+        }
+
+        /// <summary>
+        /// Create HTTP request to 'Nova Poshta' gateway async
+        /// </summary>
+        /// <param name="data">Data to send, usually serialized at JSON or XML format.</param>
+        /// <returns>Gateway response. Serialized at XML or JSON format</returns>
+        public async Task<string> CreateRequestAsync(string overridedUri, string data)
         {
             //get request bytes
             var requestData = HttpRequestHelper.Encoding.GetBytes(data);
@@ -206,7 +235,7 @@ namespace Baroque.NovaPoshta.Client
             };
 
             //create http request
-            var responseBytes = HttpRequestHelper.CreateRequest(httpRequest);
+            var responseBytes = await HttpRequestHelper.CreateRequestAsync(httpRequest);
             var responseData = HttpRequestHelper.Encoding.GetString(responseBytes);
 
             return responseData;

@@ -84,6 +84,18 @@ namespace Baroque.NovaPoshta.Client.Http
         }
 
         /// <summary>
+        /// Create HTTP request async
+        /// </summary>
+        /// <typeparam name="THttpRequest">Request type</typeparam>
+        /// <param name="httpRequest">HTTP request</param>
+        /// <param name="timeout">Request timeout</param>
+        /// <returns>Response byte array</returns>
+        public virtual async Task<byte[]> CreateRequestAsync<THttpRequest>(THttpRequest httpRequest, int timeout = 10) where THttpRequest : IHttpRequest
+        {
+            return await CreateRequestAsync(httpRequest.Uri, httpRequest.Method, httpRequest.Parameters, httpRequest.Data, timeout);
+        }
+
+        /// <summary>
         /// Create HTTP request
         /// </summary>
         /// <param name="uri">Request uri</param>
@@ -95,6 +107,20 @@ namespace Baroque.NovaPoshta.Client.Http
         public virtual byte[] CreateRequest(Uri uri, HttpMethod httpMethod, IDictionary<string, object> parameters, byte[] data, int timeout = 10)
         {
             return CreateRequest(uri, httpMethod, parameters, new Dictionary<string, string>(), data, timeout);
+        }
+
+        /// <summary>
+        /// Create HTTP request async
+        /// </summary>
+        /// <param name="uri">Request uri</param>
+        /// <param name="httpMethod">HTTP method</param>
+        /// <param name="parameters">Request query parameters</param>
+        /// <param name="data">Data to sendResponse byte array</param>
+        /// <param name="timeout">Request timeout</param>
+        /// <returns>Response byte array</returns>
+        public virtual async Task<byte[]> CreateRequestAsync(Uri uri, HttpMethod httpMethod, IDictionary<string, object> parameters, byte[] data, int timeout = 10)
+        {
+            return await CreateRequestAsync(uri, httpMethod, parameters, new Dictionary<string, string>(), data, timeout);
         }
 
         /// <summary>
@@ -113,6 +139,21 @@ namespace Baroque.NovaPoshta.Client.Http
         }
 
         /// <summary>
+        /// Create HTTP request async
+        /// </summary>
+        /// <param name="uri">Request uri</param>
+        /// <param name="httpMethod">HTTP method</param>
+        /// <param name="parameters">Request query parameters</param>
+        /// <param name="headers">Request headers</param>
+        /// <param name="data">Data to sendResponse byte array</param>
+        /// <param name="timeout">Request timeout</param>
+        /// <returns>Response byte array</returns>
+        public virtual async Task<byte[]> CreateRequestAsync(Uri uri, HttpMethod httpMethod, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10)
+        {
+            return await CreateRequestAsync(uri, httpMethod.ToString(), parameters, headers, data, timeout);
+        }
+
+        /// <summary>
         /// Create HTTP request
         /// </summary>
         /// <param name="uri">Request uri</param>
@@ -124,24 +165,12 @@ namespace Baroque.NovaPoshta.Client.Http
         /// <returns>Response byte array</returns>
         public virtual byte[] CreateRequest(Uri uri, string method, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10)
         {
-            using (var client = new BaroqueWebClient())
-            {
-                //parse parametrized url
-                var requestUrl = CreateParametrizedRequestUrl(uri, parameters);
-
-                //add request headers
-                foreach (var header in headers)
-                    client.Headers.Add(header.Key, header.Value);
-
-                client.Encoding = Encoding;
-                client.Timeout = timeout;
-
-                return method.Equals("get", StringComparison.InvariantCultureIgnoreCase) ? client.DownloadData(requestUrl) : client.UploadData(requestUrl, method, data);
-            }
+            var response = CreateRequestAsync(uri, method, parameters, headers, data, timeout).GetAwaiter().GetResult();
+            return response;
         }
 
         /// <summary>
-        /// Create HTTP request
+        /// Create HTTP request async
         /// </summary>
         /// <param name="uri">Request uri</param>
         /// <param name="method">HTTP method</param>
