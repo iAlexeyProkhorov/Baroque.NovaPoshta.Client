@@ -30,5 +30,7 @@ You can find tracking service in Baroque.NovaPoshta.Client.Services.Tracking nam
 
 Thanks to [Dmitry](https://github.com/Demonchik) for pointing out what I missed.
 
+Nuget: ```Install-Package Baroque.NovaPoshta.Client -Version 1.4.0```
+
 ### Feel free to write me about project bugs and issues.
 
