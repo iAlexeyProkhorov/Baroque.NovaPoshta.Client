@@ -1,6 +1,7 @@
 ﻿using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Domain.Common;
 using System;
+using System.Threading.Tasks;
 
 namespace Baroque.NovaPoshta.Client.Services.Common
 {
@@ -20,6 +21,15 @@ namespace Baroque.NovaPoshta.Client.Services.Common
         IResponseEnvelope<GetTimeIntervalsResponse.TimeInterval> GetTimeIntervals(Guid recipientCityRef, DateTime? dateTime);
 
         /// <summary>
+        /// Get list of time intervals async. Represents method 'getTimeIntervals' from 'Common' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890f
+        /// </summary>
+        /// <param name="recipientCityRef">Recipient city reference.</param>
+        /// <param name="dateTime">Time when time intervals will be actual.</param>
+        /// <returns></returns>
+        Task<IResponseEnvelope<GetTimeIntervalsResponse.TimeInterval>> GetTimeIntervalsAsync(Guid recipientCityRef, DateTime? dateTime);
+
+        /// <summary>
         /// Get list of time intervals. Represents method 'getTimeIntervals' from 'Common' model.
         /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890f
         /// </summary>
@@ -28,11 +38,26 @@ namespace Baroque.NovaPoshta.Client.Services.Common
         IResponseEnvelope<GetTimeIntervalsResponse.TimeInterval> GetTimeIntervals(GetTimeIntervalsRequest request);
 
         /// <summary>
+        /// Get list of time intervals async. Represents method 'getTimeIntervals' from 'Common' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890f
+        /// </summary>
+        /// <param name="request">Get time intervals request</param>
+        /// <returns>Time intervals response</returns>
+        Task<IResponseEnvelope<GetTimeIntervalsResponse.TimeInterval>> GetTimeIntervalsAsync(GetTimeIntervalsRequest request);
+
+        /// <summary>
         /// Get available cargo types. Reprensents 'getCargoTypes' method of 'Common' model.
         /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838909
         /// </summary>
         /// <returns>List of cargo types</returns>
         IResponseEnvelope<GetCargoTypesResponse.CargoType> GetCargoTypes();
+
+        // <summary>
+        /// Get available cargo types async. Reprensents 'getCargoTypes' method of 'Common' model.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838909
+        /// </summary>
+        /// <returns>List of cargo types</returns>
+        Task<IResponseEnvelope<GetCargoTypesResponse.CargoType>> GetCargoTypesAsync();
 
         /// <summary>
         /// Get list of available backward delivery cargo types. Represents 'getBackwardDeliveryCargoTypes' method response.
@@ -40,6 +65,13 @@ namespace Baroque.NovaPoshta.Client.Services.Common
         /// </summary>
         /// <returns>List of backward delivery cargo types</returns>
         IResponseEnvelope<GetBackwardDeliveryCargoTypesResponse.CargoType> GetBackwardDeliveryCargoTypes();
+
+        /// <summary>
+        /// Get list of available backward delivery cargo types async. Represents 'getBackwardDeliveryCargoTypes' method response.
+        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838907
+        /// </summary>
+        /// <returns>List of backward delivery cargo types</returns>
+        Task<IResponseEnvelope<GetBackwardDeliveryCargoTypesResponse.CargoType>> GetBackwardDeliveryCargoTypesAsync();
 
         /// <summary>
         /// Get list of available pallets. Represents 'getPalletsList' method of 'Common' model.
