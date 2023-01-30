@@ -167,9 +167,18 @@ namespace Baroque.NovaPoshta.Client.Services.Common
 
         /// <summary>
         /// Get list of available pallets. Represents 'getPalletsList' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/5824774ba0fe4f0e60694eb0
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a5dd575e-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         public virtual IResponseEnvelope<GetPalletsListResponse.Pallet> GetPalletsList()
+        {
+            return GetPalletsListAsync().GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Gets list of available pallets async. Represents 'getPalletsList' method of 'Common' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a5dd575e-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        public virtual async Task<IResponseEnvelope<GetPalletsListResponse.Pallet>> GetPalletsListAsync()
         {
             var request = new RequestEnvelope<EmptyRequest>()
             {
@@ -178,16 +187,26 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetPalletsListResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetPalletsListResponse>(request);
             return response;
         }
 
         /// <summary>
-        /// Get list of available payer types. Represents 'getTypesOfPayers' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838913
+        /// Gets list of available payer types. Represents 'getTypesOfPayers' method of 'Common' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6247f2f-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <returns>Array of payer types</returns>
         public virtual IResponseEnvelope<GetPayerTypesResponse.PayerType> GetTypesOfPayers()
+        {
+            return GetTypesOfPayersAsync().GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Gets list of available payer types async. Represents 'getTypesOfPayers' method of 'Common' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6247f2f-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <returns>Array of payer types</returns>
+        public virtual async Task<IResponseEnvelope<GetPayerTypesResponse.PayerType>> GetTypesOfPayersAsync()
         {
             var request = new RequestEnvelope<EmptyRequest>()
             {
@@ -196,7 +215,7 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetPayerTypesResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetPayerTypesResponse>(request);
             return response;
         }
 
