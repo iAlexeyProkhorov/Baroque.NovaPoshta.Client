@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.2;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
-    <Version>1.4.0</Version>
+    <Version>1.4.1</Version>
     <Description>Library represents full client for 'Nova Poshta' API</Description>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Supports API 2.0 methods for all available models.</PackageReleaseNotes>
