@@ -53,8 +53,21 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
         public int POSTerminal { get; set; }
 
         /// <summary>
-        /// Gets or sets page number. Each page contains maximum 500 items.
+        /// Gets or sets searching warehouse number.
         /// </summary>
+        [DataMember]
+        public int? WarehouseId { get; set; }
+
+        /// <summary>
+        /// Gets or sets page number. Each page contains maximum 500 items. Works with 'Limit' property.
+        /// </summary>
+        [DataMember]
         public int Page { get; set; }
+
+        /// <summary>
+        /// Gets or sets limit for items per one page.
+        /// </summary>
+        [DataMember]
+        public int Limit { get; set; }
     }
 }

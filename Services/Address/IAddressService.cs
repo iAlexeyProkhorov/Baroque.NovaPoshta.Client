@@ -127,10 +127,12 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <param name="bicycleParking">Has warehouse bicycle parking. 'True' - has parking, 'False' - no parking.</param>
         /// <param name="postFinance">Warehouse post finance cashbox. 'True' - has post finance. 'False' - no post finance.</param>
         /// <param name="posTerminal">Warehouse has POS terminal. 'True' - has termina. 'False' - no terminal.</param>
+        /// <param name="warehouseId">Warehouse number.</param>
         /// <param name="page">Response page number. One page contains 500 warehouses.</param>
+        /// <param name="limit">Response items quantity per one page.</param>
         /// <returns>List of 'Nova Poshta' service warehouses</returns>
         IResponseEnvelope<WarehousesGetResponse.Warehouse> GetWarehouses(string cityName = "", Guid? cityRef = null, Guid? settlementRef = null, Guid? warehouseType = null,
-            bool bicycleParking = false, bool postFinance = false, bool posTerminal = false, int page = 1);
+            bool bicycleParking = false, bool postFinance = false, bool posTerminal = false, int? warehouseId = null, int page = 1, int limit = 500);
 
         /// <summary>
         /// Get warehouses list by request parameters.Represents 'getWarehouses' method of 'Address' model.
