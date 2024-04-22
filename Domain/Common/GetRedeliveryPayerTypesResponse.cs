@@ -4,7 +4,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Common
 {
     /// <summary>
     /// Get list of redelivery payer types. Represents 'getTypesOfPayersForRedelivery' method of 'Common' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838914
+    /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6247f2f-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class GetRedeliveryPayerTypesResponse : BaseResponseEnvelope<GetRedeliveryPayerTypesResponse.PayerType>

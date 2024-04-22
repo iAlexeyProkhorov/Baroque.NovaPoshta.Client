@@ -4,7 +4,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Common
 {
     /// <summary>
     /// Get list of available backward delivery cargo types. Represents 'getBackwardDeliveryCargoTypes' method response.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838907
+    /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a5b46873-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class GetBackwardDeliveryCargoTypesResponse : BaseResponseEnvelope<GetBackwardDeliveryCargoTypesResponse.CargoType>

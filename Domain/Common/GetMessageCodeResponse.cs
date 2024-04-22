@@ -4,7 +4,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Common
 {
     /// <summary>
     /// Allow to get error messages. Reprensents 'getMessageCodeText' method response of 'Common' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/58f0730deea270153c8be3cd
+    /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6bce5a1-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class GetMessageCodeResponse : BaseResponseEnvelope<GetMessageCodeResponse.MessageCodeItem>

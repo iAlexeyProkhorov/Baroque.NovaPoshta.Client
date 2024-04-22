@@ -7,13 +7,12 @@ namespace Baroque.NovaPoshta.Client.Services.Common
 {
     /// <summary>
     /// Represents methods collection for 'Common' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890f
     /// </summary>
     public interface ICommonService
     {
         /// <summary>
         /// Get list of time intervals async. Represents method 'getTimeIntervals' from 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890f
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a56d5c1c-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="recipientCityRef">Recipient city reference.</param>
         /// <param name="dateTime">Time when time intervals will be actual.</param>
@@ -22,7 +21,7 @@ namespace Baroque.NovaPoshta.Client.Services.Common
 
         /// <summary>
         /// Get list of time intervals async. Represents method 'getTimeIntervals' from 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890f
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a56d5c1c-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request">Get time intervals request</param>
         /// <returns>Time intervals response</returns>
@@ -30,7 +29,7 @@ namespace Baroque.NovaPoshta.Client.Services.Common
 
         /// <summary>
         /// Get available cargo types async. Reprensents 'getCargoTypes' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838909
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a5912a1e-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <returns>List of cargo types</returns>
         Task<IResponseEnvelope<GetCargoTypesResponse.CargoType>> GetCargoTypesAsync();
