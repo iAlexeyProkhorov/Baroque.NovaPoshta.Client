@@ -24,6 +24,14 @@ namespace Baroque.NovaPoshta.Client.Http
         string CreateParametrizedRequestUrl<THttpRequest>(THttpRequest httpRequest) where THttpRequest : IHttpRequest;
 
         /// <summary>
+        /// Create parametrized request url
+        /// </summary>
+        /// <param name="uri">Request uri</param>
+        /// <param name="parameters">Request parameters</param>
+        /// <returns>Parametrized request url</returns>
+        string CreateParametrizedRequestUrl(Uri uri, IDictionary<string, object> parameters);
+
+        /// <summary>
         /// Create HTTP request async
         /// </summary>
         /// <typeparam name="THttpRequest">Request type</typeparam>
@@ -33,35 +41,7 @@ namespace Baroque.NovaPoshta.Client.Http
         Task<byte[]> CreateRequestAsync<THttpRequest>(THttpRequest httpRequest, int timeout = 10) where THttpRequest : IHttpRequest;
 
         /// <summary>
-        /// Create parametrized request url
-        /// </summary>
-        /// <param name="uri">Request uri</param>
-        /// <param name="parameters">Request parameters</param>
-        /// <returns>Parametrized request url</returns>
-        string CreateParametrizedRequestUrl(Uri uri, IDictionary<string, object> parameters);
-
-        /// <summary>
         /// Create HTTP request
-        /// </summary>
-        /// <typeparam name="THttpRequest">Request type</typeparam>
-        /// <param name="httpRequest">HTTP request</param>
-        /// <param name="timeout">Request timeout</param>
-        /// <returns>Response byte array</returns>
-        byte[] CreateRequest<THttpRequest>(THttpRequest httpRequest, int timeout = 10) where THttpRequest : IHttpRequest;
-
-        /// <summary>
-        /// Create HTTP request
-        /// </summary>
-        /// <param name="uri">Request uri</param>
-        /// <param name="httpMethod">HTTP method</param>
-        /// <param name="parameters">Request query parameters</param>
-        /// <param name="data">Data to sendResponse byte array</param>
-        /// <param name="timeout">Request timeout</param>
-        /// <returns>Response byte array</returns>
-        byte[] CreateRequest(Uri uri, HttpMethod httpMethod, IDictionary<string, object> parameters, byte[] data, int timeout = 10);
-
-        /// <summary>
-        /// Create HTTP request async
         /// </summary>
         /// <param name="uri">Request uri</param>
         /// <param name="httpMethod">HTTP method</param>
@@ -70,18 +50,6 @@ namespace Baroque.NovaPoshta.Client.Http
         /// <param name="timeout">Request timeout</param>
         /// <returns>Response byte array</returns>
         Task<byte[]> CreateRequestAsync(Uri uri, HttpMethod httpMethod, IDictionary<string, object> parameters, byte[] data, int timeout = 10);
-
-        /// <summary>
-        /// Create HTTP request
-        /// </summary>
-        /// <param name="uri">Request uri</param>
-        /// <param name="httpMethod">HTTP method</param>
-        /// <param name="parameters">Request query parameters</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="data">Data to sendResponse byte array</param>
-        /// <param name="timeout">Request timeout</param>
-        /// <returns>Response byte array</returns>
-        byte[] CreateRequest(Uri uri, HttpMethod httpMethod, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10);
 
         /// <summary>
         /// Create HTTP request async
@@ -94,18 +62,6 @@ namespace Baroque.NovaPoshta.Client.Http
         /// <param name="timeout">Request timeout</param>
         /// <returns>Response byte array</returns>
         Task<byte[]> CreateRequestAsync(Uri uri, HttpMethod httpMethod, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10);
-
-        /// <summary>
-        /// Create HTTP request
-        /// </summary>
-        /// <param name="uri">Request uri</param>
-        /// <param name="method">HTTP method</param>
-        /// <param name="parameters">Request query parameters</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="data">Data to sendResponse byte array</param>
-        /// <param name="timeout">Request timeout</param>
-        /// <returns>Response byte array</returns>
-        byte[] CreateRequest(Uri uri, string method, IDictionary<string, object> parameters, IDictionary<string, string> headers, byte[] data, int timeout = 10);
 
         /// <summary>
         /// Create HTTP request

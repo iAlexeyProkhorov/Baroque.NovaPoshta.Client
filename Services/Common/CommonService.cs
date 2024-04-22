@@ -50,18 +50,6 @@ namespace Baroque.NovaPoshta.Client.Services.Common
         #region Methods
 
         /// <summary>
-        /// Get list of time intervals. Represents method 'getTimeIntervals' from 'Common' model.
-        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a56d5c1c-8512-11ec-8ced-005056b2dbe1
-        /// </summary>
-        /// <param name="recipientCityRef">Recipient city reference.</param>
-        /// <param name="dateTime">Time when time intervals will be actual.</param>
-        /// <returns></returns>
-        public virtual IResponseEnvelope<GetTimeIntervalsResponse.TimeInterval> GetTimeIntervals(Guid recipientCityRef, DateTime? dateTime)
-        {
-            return GetTimeIntervalsAsync(recipientCityRef, dateTime).Result;
-        }
-
-        /// <summary>
         /// Get list of time intervals async. Represents method 'getTimeIntervals' from 'Common' model.
         /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a56d5c1c-8512-11ec-8ced-005056b2dbe1
         /// </summary>
@@ -77,17 +65,6 @@ namespace Baroque.NovaPoshta.Client.Services.Common
             };
 
             return await GetTimeIntervalsAsync(request);
-        }
-
-        /// <summary>
-        /// Get list of time intervals. Represents method 'getTimeIntervals' from 'Common' model.
-        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a56d5c1c-8512-11ec-8ced-005056b2dbe1
-        /// </summary>
-        /// <param name="request">Get time intervals request</param>
-        /// <returns>Time intervals response</returns>
-        public virtual IResponseEnvelope<GetTimeIntervalsResponse.TimeInterval> GetTimeIntervals(GetTimeIntervalsRequest request)
-        {
-            return GetTimeIntervalsAsync(request).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -110,16 +87,6 @@ namespace Baroque.NovaPoshta.Client.Services.Common
         }
 
         /// <summary>
-        /// Get available cargo types. Reprensents 'getCargoTypes' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838909
-        /// </summary>
-        /// <returns>List of cargo types</returns>
-        public virtual IResponseEnvelope<GetCargoTypesResponse.CargoType> GetCargoTypes()
-        {
-            return GetCargoTypesAsync().GetAwaiter().GetResult();
-        }
-
-        /// <summary>
         /// Get available cargo types async. Reprensents 'getCargoTypes' method of 'Common' model.
         /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838909
         /// </summary>
@@ -138,18 +105,8 @@ namespace Baroque.NovaPoshta.Client.Services.Common
         }
 
         /// <summary>
-        /// Get list of available backward delivery cargo types. Represents 'getBackwardDeliveryCargoTypes' method response.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838907
-        /// </summary>
-        /// <returns>List of backward delivery cargo types</returns>
-        public virtual IResponseEnvelope<GetBackwardDeliveryCargoTypesResponse.CargoType> GetBackwardDeliveryCargoTypes()
-        {
-            return GetBackwardDeliveryCargoTypesAsync().GetAwaiter().GetResult();
-        }
-
-        /// <summary>
         /// Get list of available backward delivery cargo types async. Represents 'getBackwardDeliveryCargoTypes' method response.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838907
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a5b46873-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <returns>List of backward delivery cargo types</returns>
         public virtual async Task<IResponseEnvelope<GetBackwardDeliveryCargoTypesResponse.CargoType>> GetBackwardDeliveryCargoTypesAsync()
@@ -163,15 +120,6 @@ namespace Baroque.NovaPoshta.Client.Services.Common
 
             var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetBackwardDeliveryCargoTypesResponse>(request);
             return response;
-        }
-
-        /// <summary>
-        /// Get list of available pallets. Represents 'getPalletsList' method of 'Common' model.
-        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a5dd575e-8512-11ec-8ced-005056b2dbe1
-        /// </summary>
-        public virtual IResponseEnvelope<GetPalletsListResponse.Pallet> GetPalletsList()
-        {
-            return GetPalletsListAsync().GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -189,16 +137,6 @@ namespace Baroque.NovaPoshta.Client.Services.Common
 
             var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetPalletsListResponse>(request);
             return response;
-        }
-
-        /// <summary>
-        /// Gets list of available payer types. Represents 'getTypesOfPayers' method of 'Common' model.
-        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6247f2f-8512-11ec-8ced-005056b2dbe1
-        /// </summary>
-        /// <returns>Array of payer types</returns>
-        public virtual IResponseEnvelope<GetPayerTypesResponse.PayerType> GetTypesOfPayers()
-        {
-            return GetTypesOfPayersAsync().GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -221,9 +159,9 @@ namespace Baroque.NovaPoshta.Client.Services.Common
 
         /// <summary>
         /// Get list of redelivery payer types. Represents 'getTypesOfPayersForRedelivery' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838914
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6247f2f-8512-11ec-8ced-005056b2dbe1
         /// </summary>
-        public virtual IResponseEnvelope<GetRedeliveryPayerTypesResponse.PayerType> GetTypesOfPayersForRedelivery()
+        public virtual async Task<IResponseEnvelope<GetRedeliveryPayerTypesResponse.PayerType>> GetTypesOfPayersForRedeliveryAsync()
         {
             var request = new RequestEnvelope<EmptyRequest>()
             {
@@ -232,19 +170,19 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetRedeliveryPayerTypesResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetRedeliveryPayerTypesResponse>(request);
             return response;
         }
 
         /// <summary>
         /// Allow to get available package types. Represents 'getPackList' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/582b1069a0fe4f0298618f06
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6492db4-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="height">Searching package type height. In millimeters.</param>
         /// <param name="length">Searching package type length. In millimeters.</param>
         /// <param name="width">Searching package type width. In millimeters.</param>
         /// <returns>Array of available package types</returns>
-        public virtual IResponseEnvelope<GetPackageTypesResponse.PackageType> GetPackList(decimal? length = null, decimal? height = null, decimal? width = null)
+        public virtual async Task<IResponseEnvelope<GetPackageTypesResponse.PackageType>> GetPackListAsync(decimal? length = null, decimal? height = null, decimal? width = null)
         {
             var request = new GetPackageTypesRequest()
             {
@@ -253,16 +191,16 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 Width = width
             };
 
-            return GetPackList(request);
+            return await GetPackListAsync(request);
         }
 
         /// <summary>
         /// Allow to get available package types. Represents 'getPackList' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/582b1069a0fe4f0298618f06
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6492db4-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="getPackageTypesRequest">Get package types request</param>
         /// <returns>Array of available package types</returns>
-        public virtual IResponseEnvelope<GetPackageTypesResponse.PackageType> GetPackList(GetPackageTypesRequest getPackageTypesRequest)
+        public virtual async Task<IResponseEnvelope<GetPackageTypesResponse.PackageType>> GetPackListAsync(GetPackageTypesRequest getPackageTypesRequest)
         {
             var request = new RequestEnvelope<GetPackageTypesRequest>(getPackageTypesRequest)
             {
@@ -271,16 +209,16 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<GetPackageTypesRequest, GetPackageTypesResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<GetPackageTypesRequest, GetPackageTypesResponse>(request);
             return response;
         }
 
         /// <summary>
         /// Allow to get available tyre wheel types. Represents 'getTiresWheelsList' of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b64838910
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a66fada0-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <returns>Array of available tyres & wheels types</returns>
-        public virtual IResponseEnvelope<GetTyresWheelsResponse.TyreWheelType> GetTiresWheelsList()
+        public virtual async Task<IResponseEnvelope<GetTyresWheelsResponse.TyreWheelType>> GetTiresWheelsListAsync()
         {
             var request = new RequestEnvelope<EmptyRequest>()
             {
@@ -289,18 +227,19 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetTyresWheelsResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetTyresWheelsResponse>(request);
             return response;
         }
 
         /// <summary>
         /// Allow to get possible cargo description. Represents 'getCargoDescriptionList' method of 'Common' model.
         /// Searched description must begin like searched description. Search aren't work like 'Contains' method.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a697db47-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="description">Searched cargo description</param>
         /// <param name="page">Response page number. Each page contains 500 items.</param>
         /// <returns>Array of cargo descriptions</returns>
-        public virtual IResponseEnvelope<GetCargoDescriptionResponse.CargoDescription> GetCargoDescriptionList(string description = null, int page = 1)
+        public virtual async Task<IResponseEnvelope<GetCargoDescriptionResponse.CargoDescription>> GetCargoDescriptionListAsync(string description = null, int page = 1)
         {
             var request = new GetCargoDescriptionRequest()
             {
@@ -308,16 +247,17 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 Page = page
             };
 
-            return GetCargoDescriptionList(request);
+            return await GetCargoDescriptionListAsync(request);
         }
 
         /// <summary>
         /// Allow to get possible cargo description. Represents 'getCargoDescriptionList' method of 'Common' model.
         /// Searched description must begin like searched description. Search aren't work like 'Contains' method.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a697db47-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="cargoDescriptionRequest">Cargo description request</param>
         /// <returns>Array of cargo descriptions</returns>
-        public virtual IResponseEnvelope<GetCargoDescriptionResponse.CargoDescription> GetCargoDescriptionList(GetCargoDescriptionRequest cargoDescriptionRequest)
+        public virtual async Task<IResponseEnvelope<GetCargoDescriptionResponse.CargoDescription>> GetCargoDescriptionListAsync(GetCargoDescriptionRequest cargoDescriptionRequest)
         {
             var request = new RequestEnvelope<GetCargoDescriptionRequest>(cargoDescriptionRequest)
             {
@@ -326,16 +266,16 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<GetCargoDescriptionRequest, GetCargoDescriptionResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<GetCargoDescriptionRequest, GetCargoDescriptionResponse>(request);
             return response;
         }
 
         /// <summary>
         /// Get existing error messages. Represents 'getMessageCodeText' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/58f0730deea270153c8be3cd
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6bce5a1-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <returns>Array of error messages.</returns>
-        public virtual IResponseEnvelope<GetMessageCodeResponse.MessageCodeItem> GetMessageCodeText()
+        public virtual async Task<IResponseEnvelope<GetMessageCodeResponse.MessageCodeItem>> GetMessageCodeTextAsync()
         {
             var request = new RequestEnvelope<EmptyRequest>()
             {
@@ -344,16 +284,16 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetMessageCodeResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetMessageCodeResponse>(request);
             return response;
         }
 
         /// <summary>
         /// Allow to get possible delivery service types like door - door, warehouse - warehouse and so on. Represents 'getServiceTypes' method of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890e
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a6e189f7-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <returns>Array of supported delivery service types</returns>
-        public virtual IResponseEnvelope<GetServiceTypeResponse.ServiceType> GetServiceTypes()
+        public virtual async Task<IResponseEnvelope<GetServiceTypeResponse.ServiceType>> GetServiceTypesAsync()
         {
             var request = new RequestEnvelope<EmptyRequest>()
             {
@@ -362,9 +302,31 @@ namespace Baroque.NovaPoshta.Client.Services.Common
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetServiceTypeResponse>(request);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetServiceTypeResponse>(request);
             return response;
         }
+
+        /// <summary>
+        /// Allow to get supported ownership forms. Represents 'getOwnershipFormsList' method response of 'Common' model.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a55b2c64-8512-11ec-8ced-005056b2dbe1/method/a754ff0d-8512-11ec-8ced-005056b2dbe1
+        /// </summary>
+        /// <returns>Array of supported ownership forms</returns>
+        public virtual async Task<IResponseEnvelope<GetOwnershipFormsResponse.OwnershipForm>> GetOwnershipFormsListAsync()
+        {
+            var request = new RequestEnvelope<EmptyRequest>()
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "getOwnershipFormsList",
+                ModelName = MODEL
+            };
+
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, GetOwnershipFormsResponse>(request);
+            return response;
+        }
+
+        #endregion
+
+        #region Legacy
 
         /// <summary>
         /// Allow to get existing counterparty types. Represents 'getTypesOfCounterparties' method of 'Common' model.
@@ -399,24 +361,6 @@ namespace Baroque.NovaPoshta.Client.Services.Common
             };
 
             var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetPaymentFormsResponse>(request);
-            return response;
-        }
-
-        /// <summary>
-        /// Allow to get supported ownership forms. Represents 'getOwnershipFormsList' method response of 'Common' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/55702570a0fe4f0cf4fc53ed/operations/55702571a0fe4f0b6483890b
-        /// </summary>
-        /// <returns>Array of supported ownership forms</returns>
-        public virtual IResponseEnvelope<GetOwnershipFormsResponse.OwnershipForm> GetOwnershipFormsList()
-        {
-            var request = new RequestEnvelope<EmptyRequest>()
-            {
-                ApiKey = _novaPoshtaGateway.ApiKey,
-                CalledMethod = "getOwnershipFormsList",
-                ModelName = MODEL
-            };
-
-            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, GetOwnershipFormsResponse>(request);
             return response;
         }
 
