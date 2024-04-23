@@ -5,7 +5,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
 {
     /// <summary>
     /// Load list of Ukrainian cities where 'Nova Poshta' service have warehouses. Represents 'getStreet' method of 'Address' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8db0a0fe4f08e8f7ce47
+    /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a27c20d7-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class StreetGetRequest

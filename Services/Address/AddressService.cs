@@ -14,6 +14,7 @@
 
 using Baroque.NovaPoshta.Client.Domain;
 using Baroque.NovaPoshta.Client.Domain.Address;
+using Microsoft.VisualBasic;
 using System;
 using System.Threading.Tasks;
 
@@ -321,12 +322,12 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <summary>
         /// Get list of city streets. 'Nova poshta' should have warehouses in this city.
         /// Represents 'getStreet' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8db0a0fe4f08e8f7ce47
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a27c20d7-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="name">Street name</param>
         /// <param name="cityRef">City reference key</param>
         /// <returns>List of city streets</returns>
-        public virtual IResponseEnvelope<StreetGetResponse.Street> GetStreet(Guid cityRef, string name = null, int page = 1)
+        public virtual async Task<IResponseEnvelope<StreetGetResponse.Street>> GetStreetAsync(Guid cityRef, string name = null, int page = 1)
         {
             var request = new StreetGetRequest()
             {
@@ -334,17 +335,17 @@ namespace Baroque.NovaPoshta.Client.Services.Address
                 CityRef = cityRef,
                 Page = page
             };
-            return GetStreet(request);
+            return await GetStreetAsync(request);
         }
 
         /// <summary>
         /// Get list of city streets. 'Nova poshta' should have warehouses in this city.
         /// Represents 'getStreet' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8db0a0fe4f08e8f7ce47
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a27c20d7-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request">Get street request</param>
         /// <returns>List of city streets</returns>
-        public virtual IResponseEnvelope<StreetGetResponse.Street> GetStreet(StreetGetRequest request)
+        public virtual async Task<IResponseEnvelope<StreetGetResponse.Street>> GetStreetAsync(StreetGetRequest request)
         {
             var fullRequest = new RequestEnvelope<StreetGetRequest>(request)
             {
@@ -353,7 +354,44 @@ namespace Baroque.NovaPoshta.Client.Services.Address
                 ModelName = MODEL
             };
 
-            var response = _novaPoshtaGateway.CreateRequest<StreetGetRequest, StreetGetResponse>(fullRequest);
+            var response = await _novaPoshtaGateway.CreateRequestAsync<StreetGetRequest, StreetGetResponse>(fullRequest);
+            return response;
+        }
+
+        /// <summary>
+        /// Gets area regions by area unique reference key. 
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a98072f9-2a78-11ee-a60f-48df37b921db
+        /// </summary>
+        /// <remarks>I'm not sure, but area references from 'getAreas' aren't work. Looks like area references you can get here: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/c0bfb1a3-2a73-11ee-a60f-48df37b921db</remarks>
+        /// <param name="areaReference">Area reference key</param>
+        /// <returns>List of area regions</returns>
+        public virtual async Task<IResponseEnvelope<AreaRegionGetResponse.Region>> GetSettlementCountryRegionAsync(Guid areaReference)
+        {
+            var request = new RequestEnvelope<AreaRegionGetRequest>()
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "getSettlementCountryRegion",
+                ModelName = "Address"
+            };
+
+            var response = await _novaPoshtaGateway.CreateRequestAsync<AreaRegionGetRequest, AreaRegionGetResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Gets settlement areas list. Looks like 'getAreas' method, but returns another references. Usable for 'getSettlementCountryRegion' method.
+        /// </summary>
+        /// <returns>List of settlement areas</returns>
+        public virtual async Task<IResponseEnvelope<SettlementAreaGetResponse.Area>> GetSettlementAreasAsync()
+        {
+            var request = new RequestEnvelope<EmptyRequest>()
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "getSettlementAreas",
+                ModelName = "Address"
+            };
+
+            var response = await _novaPoshtaGateway.CreateRequestAsync<EmptyRequest, SettlementAreaGetResponse>(request);
             return response;
         }
 
