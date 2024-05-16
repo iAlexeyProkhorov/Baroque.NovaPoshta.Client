@@ -5,7 +5,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
 {
     /// <summary>
     /// Request to get list of warehouses. Represents 'getWarehouses' method of 'Address' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8211a0fe4f08e8f7ce45
+    /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a2322f38-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class WarehousesGetRequest

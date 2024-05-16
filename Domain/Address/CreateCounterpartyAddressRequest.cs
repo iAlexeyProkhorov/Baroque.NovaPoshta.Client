@@ -5,7 +5,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
 {
     /// <summary>
     /// Create new counterparty address request. Represents 'save' method request of 'Address' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d9925a0fe4f08e8f7ce4a
+    /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a155d0d9-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class CreateCounterpartyAddressRequest
@@ -32,7 +32,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
         /// Gets or sets flat number
         /// </summary>
         [DataMember]
-        public int Flat { get; set; }
+        public string Flat { get; set; }
 
         /// <summary>
         /// Gets or sets note

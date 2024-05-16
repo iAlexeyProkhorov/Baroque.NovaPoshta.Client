@@ -5,7 +5,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
 {
     /// <summary>
     /// Represents cities search response implemented via 'getCities' method in 'Address' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d885da0fe4f08e8f7ce46
+    /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a1e6f0a7-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class CitiesGetResponse : BaseResponseEnvelope<CitiesGetResponse.City>

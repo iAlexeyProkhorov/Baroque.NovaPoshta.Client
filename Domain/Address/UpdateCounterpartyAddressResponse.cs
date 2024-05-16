@@ -19,6 +19,11 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
             /// Gets or sets address value
             /// </summary>
             public string Description { get; set; }
+
+            public override string ToString()
+            {
+                return Description;
+            }
         }
     }
 }

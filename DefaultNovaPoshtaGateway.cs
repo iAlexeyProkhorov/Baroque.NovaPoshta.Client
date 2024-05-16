@@ -103,7 +103,7 @@ namespace Baroque.NovaPoshta.Client
         /// <param name="apiKey">Your unique Nova Poshta service api key</param>
         public DefaultNovaPoshtaGateway(string apiKey)
         {
-            this.ApiKey = apiKey;
+            ApiKey = apiKey;
             Initialize();
         }
 
@@ -122,7 +122,7 @@ namespace Baroque.NovaPoshta.Client
         /// <summary>
         /// Initialize 'Nova Poshta' gateway
         /// </summary>
-        protected virtual void Initialize()
+        protected void Initialize()
         {
             _fullUri = $"{Url}{Version}/{SerializationHelper.Type.ToLower()}/";
         }
@@ -137,7 +137,7 @@ namespace Baroque.NovaPoshta.Client
         /// <param name="version">Version</param>
         public void SetVersion(string version)
         {
-            this.Version = version;
+            Version = version;
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace Baroque.NovaPoshta.Client
         /// <param name="serializationHelper">Serialization helper</param>
         public void SetSerializationHelper(ISerializationHelper serializationHelper)
         {
-            this.SerializationHelper = serializationHelper;
+            SerializationHelper = serializationHelper;
         }
 
         /// <summary>
@@ -157,9 +157,12 @@ namespace Baroque.NovaPoshta.Client
         /// <param name="request">Request instance</param>
         /// <returns>Deserialized response</returns>
         public TResponse CreateRequest<TRequest, TResponse>(IRequestEnvelope<TRequest> request)
-            where TRequest: class, new()
-            where TResponse: class, new()
+            where TRequest : class, new()
+            where TResponse : class, new()
         {
+            if (request == null)
+                throw new ArgumentNullException(nameof(request));
+
             //apply api key to request
             request.ApiKey = this.ApiKey;
 

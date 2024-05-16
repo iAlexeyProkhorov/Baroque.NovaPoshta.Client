@@ -4,7 +4,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
 {
     /// <summary>
     /// Represents find locality(city) request.
-    /// You can find description here: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/58e5ebeceea27017bc851d67
+    /// You can find description here: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a0eb83ab-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class SettlementsSearchRequest
@@ -18,7 +18,13 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
         /// <summary>
         /// Gets or sets response items quantity
         /// </summary>
-        [DataMember(Name ="Limit")]
+        [DataMember(Name = "Limit")]
         public int Limit { get; set; }
+
+        /// <summary>
+        /// Gets or sets response page number
+        /// </summary>
+        [DataMember(Name = "Page")]
+        public int Page { get; set; } = 1;
     }
 }

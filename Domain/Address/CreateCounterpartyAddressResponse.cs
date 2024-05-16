@@ -4,7 +4,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
 {
     /// <summary>
     /// Counterparty creation result. Represents 'save' method response of 'Address' model.
-    /// Description: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d9925a0fe4f08e8f7ce4a
+    /// Description: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a155d0d9-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class CreateCounterpartyAddressResponse : BaseResponseEnvelope<CreateCounterpartyAddressResponse.CounterpartyAddress>
@@ -26,5 +26,8 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
                 return Description;
             }
         }
+
+        [DataMember(Name = "errors")]
+        public string[] Errors { get; set; }
     }
 }

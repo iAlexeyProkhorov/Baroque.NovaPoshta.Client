@@ -54,7 +54,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <summary>
         /// Search settlements by name.
         /// Create request to 'SearchSettlements' Nova Poshta service method.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/58e5ebeceea27017bc851d67
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a0eb83ab-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="settlementName">Searched name</param>
         /// <param name="limit">Quantity</param>
@@ -73,7 +73,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <summary>
         /// Search settlements by name.
         /// Create request to 'SearchSettlements' Nova Poshta service method.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/58e5ebeceea27017bc851d67
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a0eb83ab-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request">Search settlement request method properties</param>
         /// <returns>Settlements list</returns>
@@ -94,7 +94,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
 
         /// <summary>
         /// Search street in settlement.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/58e5f369eea27017540b58ac
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a1329635-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="street">Street name</param>
         /// <param name="settlement">Settlement unique guid</param>
@@ -133,7 +133,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
 
         /// <summary>
         /// Create counterparty new address. Represents 'save' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d9925a0fe4f08e8f7ce4a
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a155d0d9-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -215,7 +215,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
 
         /// <summary>
         /// Get Ukrainian settlements. Represents 'getCities' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d885da0fe4f08e8f7ce46
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a1e6f0a7-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="ref">City unique guid key</param>
         /// <param name="name">City name</param>
@@ -232,7 +232,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
 
         /// <summary>
         /// Get Ukrainian settlements. Represents 'getCities' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d885da0fe4f08e8f7ce46
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a1e6f0a7-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request">Cities search request</param>
         /// <returns>Ukrainian cities list</returns>
@@ -252,7 +252,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <summary>
         /// Get Ukrainian settlements list by sended request parameters.
         /// Represents 'getSettlements' method of 'AddressGeneral' model. Each response page contains only 150 settlements.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/56248fffa0fe4f0da0550ea8
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a1c42723-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="name">Settlement name</param>
         /// <param name="address">Settlement address key, should be located inside settlement</param>
@@ -278,7 +278,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <summary>
         /// Get Ukrainian settlements list by sended request parameters.
         /// Represents 'getSettlements' method of 'AddressGeneral' model. Each response page contains only 150 settlements.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/56248fffa0fe4f0da0550ea8
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a1c42723-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request">GEt settlements request</param>
         /// <returns>List of finded settlements</returns>
@@ -297,7 +297,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
 
         /// <summary>
         /// Get warehouses list by needed parameters. Represents 'getWarehouses' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8211a0fe4f08e8f7ce45/console
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a2322f38-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="cityName">Name of the city where warehouse located</param>
         /// <param name="cityRef">Warehouse city reference</param>
@@ -330,7 +330,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
 
         /// <summary>
         /// Get warehouses list by request parameters.Represents 'getWarehouses' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8211a0fe4f08e8f7ce45/console
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a2322f38-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request">Warehouses get request instance</param>
         /// <returns>List of 'Nova Poshta' service warehouses</returns>
@@ -368,7 +368,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <summary>
         /// Get list of city streets. 'Nova poshta' should have warehouses in this city.
         /// Represents 'getStreet' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8db0a0fe4f08e8f7ce47
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a27c20d7-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="name">Street name</param>
         /// <param name="cityRef">City reference key</param>
@@ -387,7 +387,7 @@ namespace Baroque.NovaPoshta.Client.Services.Address
         /// <summary>
         /// Get list of city streets. 'Nova poshta' should have warehouses in this city.
         /// Represents 'getStreet' method of 'Address' model.
-        /// Documentation: https://devcenter.novaposhta.ua/docs/services/556d7ccaa0fe4f08e8f7ce43/operations/556d8db0a0fe4f08e8f7ce47
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a27c20d7-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="request">Get street request</param>
         /// <returns>List of city streets</returns>
@@ -401,6 +401,48 @@ namespace Baroque.NovaPoshta.Client.Services.Address
             };
 
             var response = _novaPoshtaGateway.CreateRequest<StreetGetRequest, StreetGetResponse>(fullRequest);
+            return response;
+        }
+
+        /// <summary>
+        /// Gets area regions by area unique reference key. 
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a98072f9-2a78-11ee-a60f-48df37b921db
+        /// </summary>
+        /// <remarks>I'm not sure, but area references from 'getAreas' aren't work. Looks like area references you can get here: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/c0bfb1a3-2a73-11ee-a60f-48df37b921db</remarks>
+        /// <param name="areaReference">Area reference key</param>
+        /// <returns>List of area regions</returns>
+        public virtual IResponseEnvelope<AreaRegionGetResponse.Region> GetSettlementCountryRegion(Guid areaReference)
+        {
+            var request = new RequestEnvelope<AreaRegionGetRequest>()
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "getSettlementCountryRegion",
+                ModelName = "Address",
+                MethodProperties = new AreaRegionGetRequest()
+                {
+                    AreaReference = areaReference
+                }
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<AreaRegionGetRequest, AreaRegionGetResponse>(request);
+            return response;
+        }
+
+        /// <summary>
+        /// Gets settlement areas list. Looks like 'getAreas' method, but returns another references. Usable for 'getSettlementCountryRegion' method.
+        /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/c0bfb1a3-2a73-11ee-a60f-48df37b921db
+        /// </summary>
+        /// <returns>List of settlement areas</returns>
+        public virtual IResponseEnvelope<SettlementAreaGetResponse.Area> GetSettlementAreas()
+        {
+            var request = new RequestEnvelope<EmptyRequest>()
+            {
+                ApiKey = _novaPoshtaGateway.ApiKey,
+                CalledMethod = "getSettlementAreas",
+                ModelName = "Address"
+            };
+
+            var response = _novaPoshtaGateway.CreateRequest<EmptyRequest, SettlementAreaGetResponse>(request);
             return response;
         }
 

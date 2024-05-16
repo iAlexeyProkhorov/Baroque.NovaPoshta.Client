@@ -6,6 +6,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
 {
     /// <summary>
     /// Represents search street response
+    /// Documentation: https://developers.novaposhta.ua/view/model/a0cf0f5f-8512-11ec-8ced-005056b2dbe1/method/a1329635-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class StreetSearchResponse : BaseResponseEnvelope<StreetSearchResponse.ResponseItem>
@@ -71,7 +72,7 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
                 /// Gets or sets street location
                 /// </summary>
                 [DataMember]
-                public string[] Location { get; set; }
+                public Location Location { get; set; }
 
                 /// <summary>
                 /// Returns street representation
@@ -82,6 +83,25 @@ namespace Baroque.NovaPoshta.Client.Domain.Address
                     return this.Present;
                 }
             }
+        }
+
+        /// <summary>
+        /// Represents street geografical location coordinates
+        /// </summary>
+        [DataContract]
+        public class Location
+        {
+            /// <summary>
+            /// Gets or sets coordinates latitude
+            /// </summary>
+            [DataMember(Name ="lat")]
+            public double Latitude { get; set; }
+
+            /// <summary>
+            /// Gets or sets coordinates longitude
+            /// </summary>
+            [DataMember(Name = "lon")]
+            public double Longitude { get; set; }
         }
     }
 }
