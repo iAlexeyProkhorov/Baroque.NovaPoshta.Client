@@ -124,6 +124,7 @@ namespace Baroque.NovaPoshta.Client.Services.ScanSheets
 
         /// <summary>
         /// Delete scan sheets by reference key
+        /// https://developers.novaposhta.ua/view/model/a46fc4f4-8512-11ec-8ced-005056b2dbe1/method/a50e049b-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="references">References collection</param>
         /// <returns>Removed references</returns>
@@ -139,6 +140,7 @@ namespace Baroque.NovaPoshta.Client.Services.ScanSheets
 
         /// <summary>
         /// Delete scan sheets by reference key
+        /// https://developers.novaposhta.ua/view/model/a46fc4f4-8512-11ec-8ced-005056b2dbe1/method/a50e049b-8512-11ec-8ced-005056b2dbe1
         /// </summary>
         /// <param name="deleteScanSheetRequest">Delete scan sheet request</param>
         /// <returns>Removed references</returns>

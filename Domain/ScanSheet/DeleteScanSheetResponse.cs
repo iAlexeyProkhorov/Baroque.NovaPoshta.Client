@@ -5,7 +5,7 @@ namespace Baroque.NovaPoshta.Client.Domain.ScanSheet
 {
     /// <summary>
     /// Represents 'deleteScanSheet' response of 'ScanSheet' model.
-    /// Documentation: https://devcenter.novaposhta.ua/docs/services/55662bd3a0fe4f10086ec96e/operations/556c6a2da0fe4f08e8f7ce2f
+    /// Documentation: https://developers.novaposhta.ua/view/model/a46fc4f4-8512-11ec-8ced-005056b2dbe1/method/a50e049b-8512-11ec-8ced-005056b2dbe1
     /// </summary>
     [DataContract]
     public class DeleteScanSheetResponse : KernelResponseEnvelope<DeleteScanSheetResponse.ScanSheetRefs>
