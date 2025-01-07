@@ -43,6 +43,15 @@ namespace Baroque.NovaPoshta.Client.Http
         /// <summary>
         /// Create HTTP request
         /// </summary>
+        /// <typeparam name="THttpRequest">Request type</typeparam>
+        /// <param name="httpRequest">HTTP request</param>
+        /// <param name="timeout">Request timeout</param>
+        /// <returns>Response byte array</returns>
+        Task<byte[]> CreateRequestAsync<THttpRequest>(THttpRequest httpRequest, int timeout = 10) where THttpRequest : IHttpRequest;
+
+        /// <summary>
+        /// Create HTTP request
+        /// </summary>
         /// <param name="uri">Request uri</param>
         /// <param name="httpMethod">HTTP method</param>
         /// <param name="parameters">Request query parameters</param>
